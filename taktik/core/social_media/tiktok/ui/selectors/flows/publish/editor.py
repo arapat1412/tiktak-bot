@@ -24,8 +24,16 @@ class PublishEditorSelectors:
     # attached, or the invitation to add one), and the cross beside it that takes the sound off.
     # Measured on 47.0.3 only, where TikTok attaches a sound on its own (override of that version);
     # the baseline editor was never captured, so the baseline has no entry.
-    _sound_chip_base: List[str] = field(default_factory=list)
-    _sound_remove_btn_base: List[str] = field(default_factory=list)
+    _sound_chip_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.trill:id/tv_top_text"]',
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/e1r"]'
+    ])
+    _sound_remove_btn_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.trill:id/dw6"]'
+        '[.//*[@resource-id="com.ss.android.ugc.trill:id/dw7"]]',
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/e1f"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/e1g"]]'
+    ])
 
     @property
     def popup_cancel_buttons(self) -> List[str]:

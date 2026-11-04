@@ -42,13 +42,25 @@ class VideoCreatorSelectors:
     creator_avatar_desc_prefixes: List[str] = field(default_factory=lambda: ["Profile ", "Profil "])
 
     _follow_button_base: List[str] = field(default_factory=lambda: [
-        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ixo"]',
+        # Lite 47.5.3 reuses ixo for the message shortcut on followed/friend
+        # accounts. A bare id can open a DM composer. Use the locale's explicit
+        # Follow label for this version; do not infer an action from its position.
         *resource_ids("hi1"),
     ])
 
     @property
     def follow_button(self) -> List[str]:
-        return self._follow_button_base + L("video_creator.follow_button")
+        # Lite 47.0.3 can keep the Follow accessibility label on the avatar
+        # shortcut even when it is a DM button (paper plane, "내 친구" badge).
+        # Relationship evidence overrides the label for BOTH decision and tap.
+        friend = '//*[@package="com.ss.android.ugc.tiktok.lite"][@text="내 친구"]'
+        return [selector + f"[not({friend})]" for selector in
+                self._follow_button_base + L("video_creator.follow_button")]
+
+    follow_message_prompt: List[str] = field(default_factory=lambda: [
+        '//android.widget.EditText[@package="com.ss.android.ugc.tiktok.lite"]'
+        '[contains(@hint," 님에게 메시지 보내기...")]',
+    ])
 
     # `yx4` is the avatar, and the follow button is drawn over its bottom (43.1.4, Pixel 3a, 30/09:
     # `hi1` [914,1027][1080,1122] over `yx4` [936,952][1057,1073]). A tap on the author passes

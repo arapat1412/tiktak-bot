@@ -70,6 +70,8 @@ class ForYouWorkflow(NaturalBrowsingMixin, FeedInterruptionsMixin, BaseVideoWork
             # Note: TikTok restart is handled by the bridge's tiktok_startup()
             if not self._ensure_on_for_you():
                 self.logger.error("❌ Failed to navigate to For You feed")
+                self.stats.errors += 1
+                self.stats.completion_reason = "navigation_failed"
                 return self.stats
             
             # Process videos

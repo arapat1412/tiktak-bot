@@ -99,6 +99,17 @@ class NaturalBrowsingMixin:
         run_halt.demander_arret(
             "interaction_unconfirmed", f"Cannot confirm {action}; do not retry"
         )
+        # Preserve the state before worker cleanup closes TikTok. Never resend an
+        # uncertain action; the screenshot/hierarchy explains what blocked proof.
+        try:
+            from taktik.core.shared.diagnostics.screen_snapshot import capture_screen_snapshot
+            device = self.click.device
+            capture_screen_snapshot(
+                device, f"unconfirmed_{action}", session_id=getattr(device, "serial", None)
+            )
+        except Exception:
+            pass  # Diagnostics must not change the stop outcome.
+
         self.stats.completion_reason = run_halt.arret_demande()["code"]
         self._running = False
 
@@ -168,6 +179,9 @@ class NaturalBrowsingMixin:
                 self.logger.warning(f"Interaction verification failed: {exc}")
                 confirmed = False
             if not confirmed:
+                if action == "comment" and getattr(self, "_natural_comment_skipped", False):
+                    emit_step("comment", action="skipped_send_disabled", target=key[0])
+                    return
                 if not self._halted():
                     self._natural_uncertain(action)
                 return
@@ -214,6 +228,8 @@ class NaturalBrowsingMixin:
             if not self._natural_wait(0.5, honor_duration=False):
                 return False
             info, screen = self._natural_read()
+            if info is None and action == "follow" and self._natural_close_follow_prompt():
+                info, screen = self._natural_read()
             if info is None or self._natural_identity(info) != key:
                 return False
             if action == "like" and info.get("is_liked"):
@@ -224,6 +240,32 @@ class NaturalBrowsingMixin:
                 return True
         return False
 
+    def _natural_close_follow_prompt(self):
+        """Dismiss only an empty Lite DM prompt, then let the caller verify follow.
+
+        Closing the prompt alone never proves success: same video and followed
+        state must still be observed. No message is typed or sent here.
+        """
+        from taktik.core.social_media.tiktok.actions.base.utils import first_matching
+        from taktik.core.social_media.tiktok.actions.atomic.interaction.comment_actions import (
+            comment_composer_is_empty,
+        )
+        device = getattr(getattr(self, "click", None), "device", None)
+        if device is None:
+            return False
+        dismissed = False
+        for _ in range(2):  # keyboard, then prompt; re-read before each Back
+            inputs = first_matching(device, VIDEO_SELECTORS.follow_message_prompt)
+            if not inputs:
+                return dismissed
+            if not comment_composer_is_empty(inputs):
+                return False  # Preserve any draft for the operator.
+            device.press("back")
+            dismissed = True
+            if not self._natural_wait(0.3, honor_duration=False):
+                return False
+        return not first_matching(device, VIDEO_SELECTORS.follow_message_prompt)
+
     def _natural_comment(self, text):
         """Send once; require a new visible row AND an observed empty composer."""
         from taktik.core.social_media.tiktok.actions.base.utils import first_matching
@@ -231,6 +273,7 @@ class NaturalBrowsingMixin:
             comment_composer_is_empty,
         )
 
+        self._natural_comment_skipped = False
         actions = self._comment_actions()
         if actions is None or not actions.open_comments():
             return False
@@ -247,6 +290,15 @@ class NaturalBrowsingMixin:
         if not self._running or self._halted():
             return False
         if not actions.post_comment(text, single_attempt=True):
+            # Only a proven disabled control is safe to skip. An attempted send
+            # remains uncertain and still halts; it is never retried.
+            if (getattr(actions, "last_comment_send_attempted", None) is False
+                    and getattr(actions, "last_comment_skip_reason", "") == "send_disabled"):
+                if actions.discard_draft():
+                    inputs = first_matching(actions.device, actions.comment_selectors.comment_input)
+                    if comment_composer_is_empty(inputs) and actions.close_comments():
+                        self._natural_comment_skipped = True
+                        self.logger.info("Comment skipped: TikTok disabled Send; draft cleared, nothing posted")
             return False
         for _ in range(4):
             if not self._natural_wait(0.5, honor_duration=False):

@@ -355,6 +355,8 @@ class CommentActions(BaseAction):
         once the field holds text. That is why the flow is: focus, type, THEN look for send. A
         version of this that looked for the button first would find the search button instead.
         """
+        self.last_comment_send_attempted = None
+        self.last_comment_skip_reason = ""
         comment = (text or "").strip()
         if not comment:
             self.logger.warning("post_comment: refusing to post an empty comment")
@@ -376,7 +378,28 @@ class CommentActions(BaseAction):
                 "post_comment: ambiguous send controls — leaving the draft alone")
             return False
 
+        import os
+        if os.environ.get("TAKTIK_CUSTOMER_EVENTS") == "1":
+            try:
+                from taktik.core.shared.diagnostics.screen_snapshot import capture_screen_snapshot
+                capture_screen_snapshot(self.device, "comment_before_send", session_id=self._get_device_serial())
+                # A capture takes time; resolve the control again before its only tap.
+                send = first_matching(self.device, self.comment_selectors.post_comment_button)
+                if len(send) != 1:
+                    return False
+            except Exception:
+                pass
+
+        if getattr(send[0], "attrib", {}).get("enabled") == "false":
+            # Korean 46.4.3 exposes a clickable but DISABLED send button.
+            # Its bounds are valid; tapping it is still not a delivery attempt.
+            self.last_comment_send_attempted = False
+            self.last_comment_skip_reason = "send_disabled"
+            self.logger.warning("post_comment: send disabled by TikTok; nothing sent")
+            return False
+
         try:
+            self.last_comment_send_attempted = True
             # Le bouton « envoyer » d'un commentaire : geste d'interaction publique, repete a
             # chaque cible. C'est celui ou le centre exact se remarque le plus.
             if not tap_element_human(self.device, send[0], logger=self.logger):

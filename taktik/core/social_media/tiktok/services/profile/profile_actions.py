@@ -14,6 +14,16 @@ from taktik.core.social_media.tiktok.ui.selectors.surfaces.profile import PROFIL
 from taktik.core.social_media.tiktok.ui.labels import classify_profile_stat_label
 
 
+STANDARD_PROFILE_PROMPTS = (
+                ['//*[@resource-id="com.ss.android.ugc.trill:id/visual_area"]'
+                 '[.//*[@text="다음에 사용할 수 있도록 로그인 정보를 저장할까요?"]]'
+                 '//android.widget.Button[@text="나중에"]'],
+                ['//*[@resource-id="com.ss.android.ugc.trill:id/visual_area"]'
+                 '[.//*[contains(@text,"TikTok에 Facebook 친구 목록 및 이메일")]]'
+                 '//android.widget.Button[@text="허용 안 함"]'],
+)
+
+
 @dataclass
 class TikTokProfileInfo:
     """Information about a TikTok profile."""
@@ -63,6 +73,10 @@ class ProfileActions(BaseAction):
         """
         logger.info("📱 Navigating to own profile...")
 
+        # A previous visit can leave the optional dialog covering navigation.
+        for selectors in STANDARD_PROFILE_PROMPTS:
+            self._find_and_click(selectors, timeout=0.2)
+
         if self._find_and_click(NAVIGATION_SELECTORS.profile_tab, timeout=5.0):
             self._random_sleep(1.5, 2.5)
 
@@ -72,6 +86,12 @@ class ProfileActions(BaseAction):
                 ['//*[@package="com.ss.android.ugc.tiktok.lite"][@text="나중에"]'],
                 timeout=0.2,
             )
+
+            # Standard Korean TikTok shows these optional prompts on the first
+            # profile visit. Scope the negative choice to the measured dialog:
+            # never acknowledge marketing or grant Facebook access.
+            for selectors in STANDARD_PROFILE_PROMPTS:
+                self._find_and_click(selectors, timeout=0.2)
 
             try:
                 # ORDER MATTERS, and it was the wrong way round. `edit_profile_button` is

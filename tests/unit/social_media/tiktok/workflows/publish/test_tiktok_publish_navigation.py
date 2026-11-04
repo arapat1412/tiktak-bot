@@ -35,7 +35,7 @@ def test_tap_create_button_uses_its_selectors(monkeypatch):
 
     device = FakeDevice()
     assert tap_create_button(device)
-    assert calls == [(device, publish_navigation.PUBLISH_CREATION_ENTRY_SELECTORS.create_btn, 3.0)]
+    assert calls == [(device, [" | ".join(publish_navigation.PUBLISH_CREATION_ENTRY_SELECTORS.create_btn)], 3.0)]
 
 
 def test_tap_create_button_taps_no_point_when_no_selector_answers(monkeypatch):
@@ -132,6 +132,7 @@ def test_select_first_gallery_item_taps_no_point_when_no_selector_answers(monkey
 
 
 def test_advance_to_post_screen_taps_next_until_post_screen(monkeypatch):
+    monkeypatch.setattr(publish_navigation, "remove_attached_sound", lambda *a, **k: "no_sound")
     post_states = iter([False, True])
     sleeps = []
     taps = []
@@ -145,6 +146,7 @@ def test_advance_to_post_screen_taps_next_until_post_screen(monkeypatch):
 
 
 def test_advance_to_post_screen_says_the_post_screen_was_not_reached_when_next_is_missing(monkeypatch):
+    monkeypatch.setattr(publish_navigation, "remove_attached_sound", lambda *a, **k: "no_sound")
     monkeypatch.setattr(publish_navigation, "is_post_screen", lambda _device: False)
     monkeypatch.setattr(publish_navigation, "tap_element", lambda *_args, **_kwargs: False)
 

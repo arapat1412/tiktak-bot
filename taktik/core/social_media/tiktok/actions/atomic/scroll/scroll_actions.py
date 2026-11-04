@@ -41,7 +41,12 @@ class ScrollActions(BaseAction):
             self.logger.debug("📱 Scrolling to next video")
             before = self._read_video_identity()
             for attempt in range(1, self.NEXT_VIDEO_ATTEMPTS + 1):
-                self._swipe_to_next_video()
+                if attempt == 1:
+                    self._swipe_to_next_video()
+                else:
+                    # A short fling already snapped back. Retry with the existing
+                    # pager drag (past half the measured screen), not another fling.
+                    self._swipe_to_next_video(force_drag=True)
                 if before is None:
                     # Nothing to compare with (no author, count or caption on the photo).
                     self.logger.debug("next video not verified: no video identity before the swipe")

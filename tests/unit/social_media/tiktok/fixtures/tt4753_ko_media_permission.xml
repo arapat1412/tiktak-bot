@@ -1,0 +1,47 @@
+<hierarchy><node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1330][1080,2205]" drawing-order="0" hint="" display-id="0">
+
+    <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,2183]" drawing-order="1" hint="" display-id="0">
+
+      <node index="0" text="" resource-id="android:id/content" class="android.widget.FrameLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,2183]" drawing-order="1" hint="" display-id="0">
+
+        <node index="0" text="" resource-id="" class="android.widget.ScrollView" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,2183]" drawing-order="1" hint="" display-id="0">
+
+          <node index="0" text="" resource-id="com.android.permissioncontroller:id/grant_singleton" class="android.widget.LinearLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,2183]" drawing-order="1" hint="" display-id="0">
+
+            <node index="0" text="" resource-id="com.android.permissioncontroller:id/grant_dialog" class="android.widget.LinearLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,2183]" drawing-order="1" hint="" display-id="0">
+
+              <node index="0" text="" resource-id="com.android.permissioncontroller:id/content_container" class="android.widget.LinearLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1352][1052,1695]" drawing-order="1" hint="" display-id="0">
+
+                <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[96,1420][984,1695]" drawing-order="1" hint="" display-id="0">
+
+                  <node index="0" text="" resource-id="com.android.permissioncontroller:id/permission_icon" class="android.widget.ImageView" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[489,1420][590,1521]" drawing-order="1" hint="" display-id="0"/>
+
+                  <node index="1" text="TikTok-Lite에서 기기에 있는 더 많은 사진과 동영상에 액세스하도록 허용하시겠습니까?" resource-id="com.android.permissioncontroller:id/permission_message" class="android.widget.TextView" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[96,1544][984,1650]" drawing-order="2" hint="" display-id="0"/>
+
+                </node>
+
+              </node>
+
+              <node index="1" text="" resource-id="" class="android.widget.LinearLayout" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[28,1695][1052,2183]" drawing-order="4" hint="" display-id="0">
+
+                <node index="0" text="제한된 액세스 허용" resource-id="com.android.permissioncontroller:id/permission_allow_selected_button" class="android.widget.Button" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[67,1695][1013,1827]" drawing-order="5" hint="" display-id="0"/>
+
+                <node index="1" text="모두 허용" resource-id="com.android.permissioncontroller:id/permission_allow_all_button" class="android.widget.Button" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[67,1838][1013,1970]" drawing-order="6" hint="" display-id="0"/>
+
+                <node index="2" text="추가 선택 안함" resource-id="com.android.permissioncontroller:id/permission_dont_allow_more_selected_button" class="android.widget.Button" package="com.google.android.permissioncontroller" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[67,1981][1013,2113]" drawing-order="13" hint="" display-id="0"/>
+
+              </node>
+
+            </node>
+
+          </node>
+
+        </node>
+
+      </node>
+
+    </node>
+
+  </node>
+
+  </hierarchy>

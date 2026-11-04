@@ -75,8 +75,10 @@ def _scroll(clock, screens):
     phone = _Phone(clock, screens)
     scroll = ScrollActions(phone)
 
-    def swipe():
+    phone.modes = []
+    def swipe(*, force_drag=False):
         phone.swipes += 1
+        phone.modes.append(force_drag)
 
     scroll._swipe_to_next_video = swipe
     return scroll, phone
@@ -92,6 +94,7 @@ def test_a_pager_that_snapped_back_is_swiped_once_more(clock):
     scroll, phone = _scroll(clock, [VIDEO, VIDEO, NEXT_VIDEO])
     assert scroll.scroll_to_next_video() is True
     assert phone.swipes == 2
+    assert phone.modes == [False, True]
 
 
 def test_the_same_video_after_every_attempt_is_a_failure(clock):

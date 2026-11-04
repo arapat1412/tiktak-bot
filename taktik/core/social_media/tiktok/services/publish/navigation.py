@@ -47,7 +47,7 @@ def tap_create_button(
     """Tap TikTok's Create button by its selectors. Nothing else: when none answers, nothing is
     tapped and the workflow stops (create_btn_not_found), rather than tapping a fixed point of the
     bottom bar."""
-    if tap_element(device, selectors.create_btn, timeout=3.0):
+    if tap_element(device, [" | ".join(selectors.create_btn)], timeout=3.0):
         return True
     _log(log, "error", "[create] no selector found TikTok's Create button: nothing tapped")
     return False

@@ -256,12 +256,12 @@ class BaseAction(SharedBaseAction):
         except Exception:
             return True
 
-    def _swipe_to_next_video(self):
+    def _swipe_to_next_video(self, *, force_drag=False):
         """Advance one video — a fling, or sometimes a deliberate drag.
 
         Both land on the next video because the feed is a snapping pager; which one happens
         follows the session's current style rather than being fixed for the whole run."""
-        self.device.swipe_up(scale=0.8, coast=self._advance_mode("tiktok_feed_advance"), pager=True)
+        self.device.swipe_up(scale=0.8, coast=False if force_drag else self._advance_mode("tiktok_feed_advance"), pager=True)
         self._human_like_delay('scroll')
 
     def _swipe_to_previous_video(self):

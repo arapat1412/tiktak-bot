@@ -12,7 +12,7 @@ from loguru import logger
 from taktik.core.social_media.tiktok.actions.base.base_action import BaseAction
 from taktik.core.social_media.tiktok.actions.base.utils import first_matching
 from taktik.core.social_media.tiktok.ui.selectors.shell.navigation import NAVIGATION_SELECTORS
-from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS, LITE_REWARD_CLOSE_SELECTOR
+from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS, LITE_REWARD_CLOSE_SELECTOR, LITE_CHECKIN_OVERLAY_SELECTOR
 from taktik.core.shared.behavior.tap import tap_element_human
 from taktik.core.shared.device.app_inspection import foreground_package
 from taktik.core.shared.device.ui_dump import parse_ui_dump
@@ -34,6 +34,21 @@ class PopupActions(BaseAction):
 
     def close_lite_reward_popup(self) -> bool:
         """Tap the campaign X once and confirm disappearance on fresh hierarchies."""
+        # A labelled campaign X takes priority when the same check-in layer is
+        # also in the hierarchy. Back is only for the opaque standalone layer.
+        if (not first_matching(self.device, [LITE_REWARD_CLOSE_SELECTOR])
+                and first_matching(self.device, [LITE_CHECKIN_OVERLAY_SELECTOR])):
+            if foreground_package(self.device) != "com.ss.android.ugc.tiktok.lite":
+                return False
+            self.device.press("back")
+            for _ in range(5):
+                time.sleep(0.2)
+                tree = parse_ui_dump(self.device.dump_hierarchy(compressed=False))
+                if tree is not None and tree.xpath(
+                    '//*[@package="com.ss.android.ugc.tiktok.lite"]'
+                ) and not tree.xpath(LITE_CHECKIN_OVERLAY_SELECTOR):
+                    return True
+            raise RuntimeError("Popup điểm danh chưa đóng; kiểm tra điện thoại.")
         matches = first_matching(self.device, [LITE_REWARD_CLOSE_SELECTOR])
         if not matches:
             return False

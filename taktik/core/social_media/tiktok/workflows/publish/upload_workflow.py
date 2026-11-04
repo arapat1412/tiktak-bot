@@ -220,7 +220,12 @@ class TikTokUploadWorkflow:
         # Wait for TikTok to fully load — 4s matches the automation bridge delay.
         # For very slow devices, also poll for the Create button before proceeding.
         time.sleep(4)
-        wait_for_tiktok_home(self.device, timeout=30.0, log=_ipc.log)
+        dismiss_post_popups(self.device, log=_ipc.log)
+        if not wait_for_tiktok_home(self.device, timeout=30.0, log=_ipc.log):
+            # A startup campaign can appear after the initial popup check.
+            dismiss_post_popups(self.device, log=_ipc.log)
+            if not wait_for_tiktok_home(self.device, timeout=10.0, log=_ipc.log):
+                return self._error("home_not_ready", "TikTok home not ready after dismissing startup popups")
         _ipc.status("navigating", "TikTok ready")
         self._capture("01_home")
 
@@ -285,6 +290,10 @@ class TikTokUploadWorkflow:
             time.sleep(0.5)
             self._capture("06_caption")
 
+        return self._submit_post(tiktok_pkg)
+
+    def _submit_post(self, tiktok_pkg: str) -> dict:
+        """Submit the prepared composer once, then verify the publication."""
         # 10. Taper "Post"
         _ipc.status("publishing", "Publishing...")
         self._capture("07_before_post")

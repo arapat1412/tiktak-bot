@@ -5,6 +5,13 @@ from dataclasses import dataclass, field
 
 from taktik.core.social_media.tiktok.ui.selectors.locales import L
 
+# 47.5.3 Korean daily check-in: inaccessible full-screen layer. Back was
+# verified to dismiss it; its bounds cover the screen, so never tap its centre.
+LITE_CHECKIN_OVERLAY_SELECTOR = (
+    '//android.view.View[@resource-id="com.ss.android.ugc.tiktok.lite:id/sn5"]'
+    '[@content-desc="@2131829478"][@clickable="true"]'
+)
+
 LITE_REWARD_CLOSE_SELECTOR = (
     '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/snb"]'
     '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/sn6"]'

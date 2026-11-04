@@ -12,6 +12,7 @@ class PublishMediaPickerSelectors:
     """Selectors for camera/gallery entry and next-step picking."""
 
     _upload_btn_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.trill:id/upload_hot_area"][@clickable="true"]',
         '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d2q"][@clickable="true"]',
         '//*[contains(@resource-id, ":id/ymg") and @clickable="true"]',
         '//*[contains(@resource-id, ":id/ce9") and @clickable="true"]',
@@ -25,6 +26,10 @@ class PublishMediaPickerSelectors:
         "cl2",
     ])
     _gallery_first_item_rids: List[str] = field(default_factory=lambda: [
+        '(//android.widget.GridView[@resource-id="com.ss.android.ugc.tiktok.lite:id/jnt"]'
+        '/android.widget.FrameLayout/android.widget.ImageView[@resource-id="com.ss.android.ugc.tiktok.lite:id/oz5"])[1]',
+        '(//android.widget.GridView[@resource-id="com.ss.android.ugc.trill:id/jc5"]'
+        '//android.widget.ImageView[@resource-id="com.ss.android.ugc.trill:id/ofk"])[1]',
         '(//android.widget.ImageView[contains(@resource-id, ":id/mub")])[1]',
         '(//android.widget.GridView[contains(@resource-id, ":id/i8o")]//android.widget.ImageView)[1]',
         '(//android.widget.ImageView[contains(@resource-id, ":id/nm8")])[1]',
@@ -32,6 +37,7 @@ class PublishMediaPickerSelectors:
         '//*[contains(@resource-id, ":id/ir_")]//android.widget.ImageView[1]',
     ])
     _gallery_picker_xml_markers: List[str] = field(default_factory=lambda: [
+        'com.ss.android.ugc.trill:id/jc5',
         'com.ss.android.ugc.tiktok.lite:id/jnt',
         ":id/i8o",
         ":id/ir_",
@@ -54,7 +60,10 @@ class PublishMediaPickerSelectors:
         ":id/d8a",
         ":id/v5w",
     ])
-    _next_btn_base: List[str] = field(default_factory=lambda: resource_ids("uyb", "ooo", "w51", "next_btn"))
+    _next_btn_base: List[str] = field(default_factory=lambda: resource_ids("uyb", "ooo", "w51", "next_btn") + [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/y3z"][@enabled="true"]',
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/q2b"][@enabled="true"]',
+    ])
 
     @property
     def upload_btn(self) -> List[str]:

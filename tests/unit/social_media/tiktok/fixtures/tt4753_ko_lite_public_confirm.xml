@@ -1,0 +1,73 @@
+<hierarchy><node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="0" hint="" display-id="0">
+
+    <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="1" hint="" display-id="0">
+
+      <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="2" hint="" display-id="0">
+
+        <node index="0" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/a3k" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="1" hint="" display-id="0">
+
+          <node index="0" text="" resource-id="android:id/content" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="1" hint="" display-id="0">
+
+            <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2340]" drawing-order="1" hint="" display-id="0">
+
+              <node index="0" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/v16" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,80][1080,2205]" drawing-order="1" hint="" display-id="0">
+
+                <node index="0" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/visual_area" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="대화 상자" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,793][934,1491]" drawing-order="1" hint="" display-id="0">
+
+                  <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,793][934,1491]" drawing-order="1" hint="" display-id="0">
+
+                    <node index="0" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/zsl" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,793][934,861]" drawing-order="1" hint="" display-id="0"/>
+
+                    <node index="1" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/dkc" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[202,861][878,1300]" drawing-order="2" hint="" display-id="0">
+
+                      <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[202,861][878,1300]" drawing-order="1" hint="" display-id="0">
+
+                        <node index="0" text="동영상을 공개적으로 게시하시겠습니까?" resource-id="com.ss.android.ugc.tiktok.lite:id/zk0" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[202,861][878,1001]" drawing-order="1" hint="" display-id="0"/>
+
+                        <node index="1" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/vbs" class="android.widget.ScrollView" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[202,1035][878,1300]" drawing-order="2" hint="" display-id="0">
+
+                          <node index="0" text="회원님의 계정은 공개되어 있으며 공개 동영상은 모두에게 표시됩니다. 이 동영상을 비공개로 설정하거나 개인 정보 보호 설정에서 비공개 계정으로 전환할 수 있습니다." resource-id="com.ss.android.ugc.tiktok.lite:id/f8q" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[202,1035][867,1300]" drawing-order="1" hint="" display-id="0"/>
+
+                        </node>
+
+                      </node>
+
+                    </node>
+
+                    <node index="2" text="" resource-id="com.ss.android.ugc.tiktok.lite:id/a2w" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,1356][934,1491]" drawing-order="5" hint="" display-id="0">
+
+                      <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,1356][934,1491]" drawing-order="1" hint="" display-id="0">
+
+                        <node index="0" text="" resource-id="" class="android.view.View" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,1356][934,1357]" drawing-order="1" hint="" display-id="0"/>
+
+                        <node index="1" text="" resource-id="" class="android.view.ViewGroup" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,1357][934,1491]" drawing-order="2" hint="" display-id="0">
+
+                          <node index="0" text="지금 게시" resource-id="" class="android.widget.Button" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[540,1357][933,1491]" drawing-order="1" hint="" display-id="0"/>
+
+                          <node index="1" text="취소" resource-id="" class="android.widget.Button" package="com.ss.android.ugc.tiktok.lite" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[146,1357][539,1491]" drawing-order="2" hint="" display-id="0"/>
+
+                        </node>
+
+                      </node>
+
+                    </node>
+
+                  </node>
+
+                </node>
+
+              </node>
+
+            </node>
+
+          </node>
+
+        </node>
+
+      </node>
+
+    </node>
+
+  </node>
+
+  </hierarchy>

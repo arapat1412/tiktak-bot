@@ -286,6 +286,26 @@ def test_uncertain_comment_send_has_no_fallback(monkeypatch):
     element.click.assert_not_called()
 
 
+def test_disabled_comment_can_be_skipped_only_after_verified_draft_cleanup(monkeypatch):
+    from taktik.core.social_media.tiktok.actions.base import utils
+    wf = workflow()
+    actions = SimpleNamespace(
+        device=object(), comment_selectors=SimpleNamespace(comment_input=["input"]),
+        open_comments=lambda: True, read_comments=lambda **kw: [],
+        post_comment=lambda *args, **kw: False,
+        last_comment_send_attempted=False, last_comment_skip_reason="send_disabled",
+        discard_draft=lambda: True, close_comments=lambda: True,
+    )
+    wf._comment_actions = lambda: actions
+    monkeypatch.setattr(utils, "first_matching", lambda *args: [SimpleNamespace(text="", attrib={})])
+    assert not wf._natural_comment("good")
+    assert wf._natural_comment_skipped
+    assert wf.stats.videos_commented == 0
+    actions.discard_draft = lambda: False
+    assert not wf._natural_comment("very")
+    assert not wf._natural_comment_skipped
+
+
 def test_wait_and_rest_are_interruptible(monkeypatch):
     wf = workflow(rest_every_videos=2)
     del wf._natural_wait
@@ -410,3 +430,162 @@ def test_existing_same_text_is_not_proof_of_new_comment(monkeypatch):
     assert not wf._natural_comment("hello")
     actions.post_comment.assert_called_once()
     actions.close_comments.assert_not_called()
+
+
+@pytest.mark.parametrize("label,should_follow", [
+    ("Creator 팔로우", True),
+    ("Creator 님에게 메시지 보내기", False),
+    ("", False),
+])
+def test_lite_shared_avatar_control_requires_follow_label(label, should_follow):
+    from xml.sax.saxutils import quoteattr
+    from uiautomator2.xpath import XPathEntry
+    from taktik.core.social_media.tiktok.actions.base.utils import first_matching
+    from taktik.core.social_media.tiktok.ui.selectors.locales import set_active_locale
+
+    class Phone:
+        wait_timeout = 0
+        def __init__(self):
+            self.xpath = XPathEntry(self)
+        def dump_hierarchy(self, *a, **kw):
+            return ('<hierarchy><node class="android.widget.Button" '
+                    'package="com.ss.android.ugc.tiktok.lite" '
+                    'resource-id="com.ss.android.ugc.tiktok.lite:id/ixo" '
+                    'clickable="true" bounds="[614,784][720,845]" content-desc='
+                    + quoteattr(label) + '/></hierarchy>')
+
+    set_active_locale("ko")
+    try:
+        phone = Phone()
+        wf = workflow(warmup_videos=0, like_probability=0, follow_probability=1)
+        wf.stats.videos_watched = 1
+        wf._natural_read = lambda: (video(1), object())
+        wf.detection = SimpleNamespace(
+            _element_exists=lambda selectors, **kw: bool(first_matching(phone, selectors))
+        )
+        wf._natural_tap = Mock(return_value=True)
+        wf._decide_and_execute_actions(video(1))
+        assert wf._natural_tap.called == should_follow
+        assert wf.stats.users_followed == int(should_follow)
+    finally:
+        set_active_locale(None)
+
+
+def test_sent_korean_lite_comment_is_confirmed_after_keyboard_hides():
+    from pathlib import Path
+    from uiautomator2.xpath import XPathEntry
+    from taktik.core.social_media.tiktok.actions.atomic.interaction.comment_actions import CommentActions
+    from taktik.core.social_media.tiktok.ui.selectors.locales import set_active_locale
+
+    fixture = (Path(__file__).parents[1] / "social_media/tiktok/fixtures/"
+               "tt4703_ko_lite_comment_sent_keyboard_closed.xml").read_text(encoding="utf-8")
+
+    class Phone:
+        wait_timeout = 0
+        def __init__(self):
+            self.xml = fixture.replace('text="very"', 'text="Other comment"')
+            self.xpath = XPathEntry(self)
+        def dump_hierarchy(self, *a, **kw):
+            return self.xml
+
+    set_active_locale("ko")
+    try:
+        phone = Phone()
+        actions = CommentActions(phone)
+        assert actions.is_comment_sheet_open()
+        assert not any(r["text"] == "very" for r in actions.read_comments())
+        def send_once(*a, **kw):
+            phone.xml = fixture
+            return True
+        actions.post_comment = Mock(side_effect=send_once)
+        actions.close_comments = Mock(return_value=True)
+        wf = workflow()
+        wf._comment_actions = lambda: actions
+        wf._current_video_author = "Creator"
+        wf._record_posted_comment = Mock()
+        assert wf._natural_comment("very")
+        actions.post_comment.assert_called_once_with("very", single_attempt=True)
+        wf._record_posted_comment.assert_called_once_with("very")
+        actions.close_comments.assert_called_once()
+    finally:
+        set_active_locale(None)
+
+
+@pytest.mark.parametrize("friend_badge,expected", [(False, True), (True, False)])
+def test_lite_friend_badge_overrides_stale_follow_label(friend_badge, expected):
+    from uiautomator2.xpath import XPathEntry
+    from taktik.core.social_media.tiktok.actions.base.utils import first_matching
+    from taktik.core.social_media.tiktok.ui.selectors.locales import set_active_locale
+    from taktik.core.social_media.tiktok.ui.selectors.surfaces.video import VIDEO_SELECTORS
+
+    class Phone:
+        wait_timeout = 0
+        def __init__(self):
+            self.xpath = XPathEntry(self)
+        def dump_hierarchy(self, *a, **kw):
+            badge = ('<node class="android.widget.TextView" '
+                     'package="com.ss.android.ugc.tiktok.lite" text="내 친구"/>'
+                     if friend_badge else '')
+            return ('<hierarchy><node class="android.widget.Button" '
+                    'package="com.ss.android.ugc.tiktok.lite" '
+                    'resource-id="com.ss.android.ugc.tiktok.lite:id/ivy" '
+                    'clickable="true" bounds="[910,1120][1080,1217]" '
+                    'content-desc="Creator 팔로우"/>' + badge + '</hierarchy>')
+
+    set_active_locale("ko")
+    try:
+        phone = Phone()
+        wf = workflow(warmup_videos=0, like_probability=0, follow_probability=1)
+        wf.stats.videos_watched = 1
+        wf._natural_read = lambda: (video(1), object())
+        wf.detection = SimpleNamespace(
+            _element_exists=lambda selectors, **kw: bool(first_matching(phone, selectors))
+        )
+        wf._natural_tap = Mock(return_value=True)
+        wf._decide_and_execute_actions(video(1))
+        assert wf._natural_tap.called == expected
+        assert bool(first_matching(phone, VIDEO_SELECTORS.follow_button)) == expected
+    finally:
+        set_active_locale(None)
+
+
+@pytest.mark.parametrize("draft,same_video,follow_visible,expected", [
+    ("", True, False, True),
+    ("unsent draft", True, False, False),
+    ("", False, False, False),
+    ("", True, True, False),
+])
+def test_follow_prompt_is_closed_without_sending_and_success_is_verified(
+    draft, same_video, follow_visible, expected
+):
+    from xml.sax.saxutils import quoteattr
+    from uiautomator2.xpath import XPathEntry
+
+    class Phone:
+        wait_timeout = 0
+        def __init__(self):
+            self.backs = 0
+            self.xpath = XPathEntry(self)
+        def dump_hierarchy(self, *a, **kw):
+            if self.backs >= 2:
+                return '<hierarchy/>'
+            hint = "Creator 님에게 메시지 보내기..."
+            return ('<hierarchy><node class="android.widget.EditText" '
+                    'package="com.ss.android.ugc.tiktok.lite" clickable="true" '
+                    'hint=' + quoteattr(hint) + ' text=' + quoteattr(draft or hint)
+                    + '/></hierarchy>')
+        def press(self, key):
+            assert key == "back"
+            self.backs += 1
+
+    phone = Phone()
+    wf = workflow()
+    wf.click = SimpleNamespace(device=phone)
+    wf._natural_click_once = Mock(return_value=True)
+    wf._natural_read = lambda: (
+        (video(1 if same_video else 2), object()) if phone.backs >= 2 else (None, None)
+    )
+    wf.detection = SimpleNamespace(_element_exists=lambda *a, **kw: follow_visible)
+    assert wf._natural_tap("follow", wf._natural_identity(video(1))) == expected
+    wf._natural_click_once.assert_called_once_with("follow")
+    assert phone.backs == (0 if draft else 2)

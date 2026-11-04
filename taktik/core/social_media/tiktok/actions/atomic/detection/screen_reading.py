@@ -85,12 +85,12 @@ def popup_families(present: Callable) -> Set[str]:
     says whether one of them is on the screen: the handler's own dump scan and the photo share
     this one table."""
     from taktik.core.social_media.tiktok.ui.selectors.shell.navigation import NAVIGATION_SELECTORS
-    from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS, LITE_REWARD_CLOSE_SELECTOR
+    from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS, LITE_REWARD_CLOSE_SELECTOR, LITE_CHECKIN_OVERLAY_SELECTOR
     from taktik.core.social_media.tiktok.ui.selectors.surfaces.inbox import INBOX_SELECTORS
 
     table = (
         ('manual_consent', (POPUP_SELECTORS.manual_consent_popup,)),
-        ('lite_reward', ([LITE_REWARD_CLOSE_SELECTOR],)),
+        ('lite_reward', ([LITE_REWARD_CLOSE_SELECTOR, LITE_CHECKIN_OVERLAY_SELECTOR],)),
         ('system_deny', (POPUP_SELECTORS.system_deny_button,)),
         ('system_input', (POPUP_SELECTORS.system_input_method_popup,)),
         ('system_dialog', (POPUP_SELECTORS.system_dialog,)),

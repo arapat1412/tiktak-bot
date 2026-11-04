@@ -128,10 +128,9 @@ def test_on_47_0_3_next_on_the_editor_is_q03_never_the_story_shortcut(on_47_0_3)
 # --- the editor: the sound TikTok attached -----------------------------------------------------
 
 
-def test_the_baseline_knows_no_sound_chip():
-    """Never captured on 43.1.4: no baseline entry, and nothing is guessed."""
-    assert PUBLISH_EDITOR_SELECTORS.sound_chip == []
-    assert PUBLISH_EDITOR_SELECTORS.sound_remove_btn == []
+def test_lite_sound_controls_do_not_match_standard_4703_editor():
+    assert not _any_match(EDITOR_WITH_SOUND, PUBLISH_EDITOR_SELECTORS.sound_chip)
+    assert not _any_match(EDITOR_WITH_SOUND, PUBLISH_EDITOR_SELECTORS.sound_remove_btn)
 
 
 def test_on_47_0_3_the_cross_shows_only_while_a_sound_is_on_the_video(on_47_0_3):

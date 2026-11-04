@@ -54,7 +54,11 @@ def test_a_cli_text_post_publishes_like_the_bridge(rig, publish_payload):
     assert cli["result"]["success"] is True
 
 
-def test_a_cli_publish_on_a_cloned_tiktok_patches_its_selectors_like_the_bridge(rig, publish_payload):
+def test_a_cli_publish_on_a_cloned_tiktok_patches_its_selectors_like_the_bridge(rig, publish_payload, monkeypatch):
+    # The bridge now verifies installation before connecting. This fake-phone
+    # scenario explicitly represents an installed clone; never invoke real ADB.
+    from taktik.core.social_media.tiktok.services.runtime import package_resolver
+    monkeypatch.setattr(package_resolver, "resolve_tiktok_package", lambda *_: "com.example.tiktokclone")
     bridge, cli = _run_both(rig, publish_payload(packageName="com.example.tiktokclone"))
 
     assert cli["exit"] == 0, cli["output"]

@@ -61,6 +61,13 @@ class CommentSelectors:
     # silent: when they go, the sheet reads as closed and every comment action refuses, which is
     # the safe direction -- unlike the composer, which failed by saying yes.
     _sheet_indicator_base: List[str] = field(default_factory=lambda: [
+        # Lite 47.0.3 Korean: after sending, the keyboard hides and the input
+        # becomes nonclickable. The close icon is unlabelled. Require the whole
+        # measured sheet: panel, count header, composer and close control.
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/oaf"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/wkd"]]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ejx"]]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bry"]]',
         # Lite 47.1.4: its close icon has NO accessibility label, so the
         # localized header+labelled-close fallback cannot recognize this sheet.
         '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/im6"]'
@@ -215,6 +222,9 @@ class CommentSelectors:
         return self._post_comment_button_base + L("comment.post_comment_button")
 
     _close_button_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/oaf"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/wkd"]]'
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bry"][@clickable="true"]',
         '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/im6"]'
         '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bs8"][@clickable="true"]',
         '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ocq"]'

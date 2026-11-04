@@ -77,5 +77,5 @@ def test_composer_controls_are_exact_and_distinct_from_drafts():
 def test_post_publish_widget_cancel_requires_samsung_widget_dialog():
     cancel = '<node resource-id="com.sec.android.app.launcher:id/cancel_button"/>'
     widget = '<node resource-id="com.sec.android.app.launcher:id/add_item_title"/>'
-    assert len(tree(widget + cancel).xpath(EDITOR.popup_cancel_buttons[0])) == 1
-    assert not tree(cancel).xpath(EDITOR.popup_cancel_buttons[0])
+    assert len(tree(widget + cancel).xpath(" | ".join(EDITOR.popup_cancel_buttons))) == 1
+    assert not tree(cancel).xpath(" | ".join(EDITOR.popup_cancel_buttons))

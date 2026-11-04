@@ -94,6 +94,23 @@ def test_a_publication_that_reaches_the_post_screen_is_posted(publish):
     assert publish.seen["post_taps"] == 1
 
 
+def test_home_never_ready_stops_before_create(publish, monkeypatch):
+    monkeypatch.setattr(module, "wait_for_tiktok_home", lambda *a, **k: False)
+    monkeypatch.setattr(module, "tap_create_button", lambda *a, **k: pytest.fail("Create tapped before home ready"))
+    result = publish()
+    assert result["error_type"] == "home_not_ready"
+    assert publish.seen["post_taps"] == 0
+
+
+def test_delayed_startup_popup_is_dismissed_before_retry(publish, monkeypatch):
+    events = []
+    ready = iter([False, True])
+    monkeypatch.setattr(module, "wait_for_tiktok_home", lambda *a, **k: events.append("wait") or next(ready))
+    monkeypatch.setattr(module, "dismiss_post_popups", lambda *a, **k: events.append("dismiss") or True)
+    assert publish()["success"]
+    assert events[:4] == ["dismiss", "wait", "dismiss", "wait"]
+
+
 def test_a_sound_that_stays_on_the_video_publishes_nothing(publish):
     publish.answers["advance"] = module.SOUND_NOT_REMOVED
 

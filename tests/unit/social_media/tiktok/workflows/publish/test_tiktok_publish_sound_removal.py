@@ -115,11 +115,13 @@ def test_an_unreadable_screen_is_no_proof_of_silence(on_47_0_3):
     assert "error" in log.levels()
 
 
-def test_on_the_baseline_the_cross_is_unknown_and_the_screen_is_not_read():
+def test_unknown_catalog_does_not_read_the_screen():
+    from taktik.core.social_media.tiktok.ui.selectors.flows.publish import PublishEditorSelectors
+    unknown = PublishEditorSelectors(_sound_chip_base=[], _sound_remove_btn_base=[])
     phone = ScreenPhone("editor_with_sound", SCREENS, MOVES)
 
-    assert not sound_removal_is_known()
-    assert remove_attached_sound(phone, sleep=_no_sleep) == NO_SOUND
+    assert not sound_removal_is_known(unknown)
+    assert remove_attached_sound(phone, editor=unknown, sleep=_no_sleep) == NO_SOUND
     assert phone.dumps == 0 and phone.taps == []
 
 
@@ -143,8 +145,10 @@ def test_a_sound_that_stays_stops_before_next(on_47_0_3):
 
 
 def test_a_version_without_the_cross_says_so_once(monkeypatch):
+    from taktik.core.social_media.tiktok.ui.selectors.flows.publish import PublishEditorSelectors
+    unknown = PublishEditorSelectors(_sound_chip_base=[], _sound_remove_btn_base=[])
     log = CollectedLog()
     phone = ScreenPhone("post_screen", SCREENS, MOVES)
 
-    assert navigation.advance_to_post_screen(phone, sleep=_no_sleep, log=log) == navigation.POST_SCREEN_REACHED
+    assert navigation.advance_to_post_screen(phone, editor=unknown, sleep=_no_sleep, log=log) == navigation.POST_SCREEN_REACHED
     assert log.levels() == ["warning"]

@@ -66,7 +66,7 @@ def is_post_screen(
         tree = parse_ui_dump(xml)
         if tree is None:
             return False
-        for xpath in selectors.post_screen_indicators:
+        for xpath in selectors.publish_confirm_dialog + selectors.post_screen_indicators:
             try:
                 if tree.xpath(xpath):
                     return True
@@ -105,12 +105,14 @@ def wait_for_tiktok_home(
         elapsed = clock() - start
         if elapsed >= timeout:
             if log:
-                log("warning", f"TikTok home not detected after {timeout:.0f}s, proceeding anyway")
+                log("warning", f"TikTok home not detected after {timeout:.0f}s")
             return False
 
-        for xpath in selectors.home_ready_indicators:
+        # One query evaluates every locale on the same hierarchy. Sequential waits
+        # could exhaust the deadline on English/French before reaching Korean.
+        for xpath in [" | ".join(selectors.home_ready_indicators)]:
             try:
-                if device.xpath(xpath).wait(timeout=per_selector_timeout):
+                if device.xpath(xpath).wait(timeout=min(per_selector_timeout, max(0.01, timeout - elapsed))):
                     if log:
                         log("info", f"TikTok home ready in {clock() - start:.1f}s")
                     return True

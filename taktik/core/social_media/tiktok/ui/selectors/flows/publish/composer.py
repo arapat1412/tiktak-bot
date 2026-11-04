@@ -12,11 +12,16 @@ class PublishComposerSelectors:
     """Selectors for caption entry, hashtag suggestions, and final submit."""
 
     _caption_input_base: List[str] = field(default_factory=lambda: [
+        '//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/h_s"]',
+        '//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/h00"]',
         '//*[contains(@resource-id, ":id/g19")]',
         '//android.widget.EditText[@clickable="true"][1]',
         '(//android.widget.EditText)[1]',
     ])
-    _post_btn_base: List[str] = field(default_factory=lambda: resource_ids("qrb", "post_btn"))
+    _post_btn_base: List[str] = field(default_factory=lambda: [
+        '//android.widget.Button[@resource-id="com.ss.android.ugc.tiktok.lite:id/tld"][@enabled="true"]',
+        *resource_ids("qrb", "post_btn"),
+    ])
     _keyboard_overlay_indicators: List[str] = field(default_factory=lambda: [
         '//*[@package="com.android.adbkeyboard"]',
         '//*[contains(@resource-id, "com.alexal1.adbkeyboard:id/switchButton")]',
