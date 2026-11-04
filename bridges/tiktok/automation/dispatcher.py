@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from bridges.common.entrypoint import send_run_error
+from taktik.core.shared.diagnostics import run_halt
 from bridges.tiktok.common.ipc import _ipc, logger, send_error
 
 
@@ -29,9 +30,16 @@ class TikTokDispatcherBridge:
             return 1
 
         try:
-            success, workflow_type = dispatch_tiktok_workflow(self.config)
+            from taktik.core.social_media.tiktok.services.runtime.session import package_session
+
+            with package_session(self.config.get("packageName")):
+                success, workflow_type = dispatch_tiktok_workflow(self.config)
             if success:
-                logger.success(f"✅ TikTok {workflow_type} workflow completed successfully")
+                halt = run_halt.arret_demande()
+                if halt:
+                    logger.warning(f"TikTok {workflow_type} workflow stopped: {halt['code']}")
+                else:
+                    logger.success(f"✅ TikTok {workflow_type} workflow completed successfully")
                 return 0
             logger.error(f"❌ TikTok {workflow_type} workflow failed")
             return 1
@@ -43,7 +51,11 @@ class TikTokDispatcherBridge:
             send_run_error(f"Workflow error: {e}", e)
             return 1
         finally:
-            force_stop_tiktok(device_id)
+            if self.config.get("packageName"):
+                from taktik.core.social_media.tiktok.services.runtime.app_control import force_stop_app_package
+                force_stop_app_package(device_id, self.config["packageName"])
+            else:
+                force_stop_tiktok(device_id)
 
 
 def reset_network_if_enabled(config: Dict[str, Any], device_id: str) -> bool:

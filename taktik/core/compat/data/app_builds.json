@@ -100,6 +100,7 @@
     "tiktok": {
       "name": "TikTok",
       "override_status": {
+        "47.4.3": "adjusted",
         "46.9.3": "adjusted",
         "46.6.3": "adjusted"
       },

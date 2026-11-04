@@ -12,12 +12,9 @@ et un faux positif sur un bouton like coute plus qu'un essai.
 """
 
 from typing import List
+from taktik.core.clone.packages.package_map import get_package_variants
 
-_PKG = [
-    "com.zhiliaoapp.musically",
-    "com.ss.android.ugc.trill",
-    "com.ss.android.ugc.aweme",
-]
+_PKG = list(get_package_variants("tiktok"))
 
 
 def _any_package(rid: str) -> str:

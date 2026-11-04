@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hierarchy rotation="1">
+  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/f32" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,72][1721,1080]" hint="">
+    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/i0h" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,72][1721,501]" hint="">
+      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ekp" class="android.view.View" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,72][1721,73]" hint="" />
+      <node text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,73][1721,179]" hint="">
+        <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/p8t" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,73][1721,179]" hint="">
+          <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/kbg" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,84][1721,179]" hint="">
+            <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hfi" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,84][1721,179]" hint="">
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/i0d" class="androidx.recyclerview.widget.RecyclerView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,89][1721,173]" hint="">
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hfr" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[673,89][915,173]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgm" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[694,99][757,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgn" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[762,99][825,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgo" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[830,99][893,162]" hint="" />
+                </node>
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hfr" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[936,89][1178,173]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgm" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[957,99][1020,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgn" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1025,99][1088,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgo" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1093,99][1156,162]" hint="" />
+                </node>
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hfr" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[1199,89][1441,173]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgm" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1220,99][1283,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgn" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1288,99][1351,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgo" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1356,99][1419,162]" hint="" />
+                </node>
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hfr" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[1462,89][1704,173]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgm" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1483,99][1546,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgn" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1551,99][1614,162]" hint="" />
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/hgo" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[1619,99][1682,162]" hint="" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node text="" resource-id="" class="android.view.ViewGroup" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+        <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/lie" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+          <node text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+            <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ek7" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/eks" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/leo" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ekr" class="android.view.ViewGroup" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="">
+                    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/b00" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,395]" hint="" />
+                    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ejq" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[673,213][768,308]" hint="" />
+                    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/n2g" class="android.view.View" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[793,200][1689,374]" hint="" />
+                    <node text="kiem tra chua gui" resource-id="com.ss.android.ugc.tiktok.lite:id/ekt" class="android.widget.EditText" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="true" bounds="[830,200][1652,340]" hint="" />
+                  </node>
+                </node>
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/i0t" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,179][1721,331]" hint="" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/wnl" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,395][1721,501]" hint="">
+        <node text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,395][1721,501]" hint="">
+          <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/wni" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,395][1721,501]" hint="">
+            <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/wnj" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[657,395][1689,490]" hint="">
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/l2s" class="android.widget.Button" package="com.ss.android.ugc.tiktok.lite" content-desc="댓글에 사진 추가" clickable="true" enabled="true" focused="false" bounds="[657,395][773,490]" hint="">
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/mbo" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[678,395][773,490]" hint="" />
+              </node>
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/m70" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[794,395][889,490]" hint="" />
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/lzg" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[910,395][1005,490]" hint="" />
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/mqc" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[1026,395][1121,490]" hint="" />
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/d1s" class="android.widget.Button" package="com.ss.android.ugc.tiktok.lite" content-desc="댓글 게시" clickable="true" enabled="true" focused="false" bounds="[1552,395][1689,479]" hint="" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/pj8" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,501][1721,1080]" hint="">
+      <node text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[641,501][1721,1080]" hint="" />
+    </node>
+  </node>
+</hierarchy>

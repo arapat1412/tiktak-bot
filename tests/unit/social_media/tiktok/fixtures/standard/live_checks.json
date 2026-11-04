@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-02",
+  "package": "com.ss.android.ugc.trill",
+  "method": "Production CommentActions._focus_and_type, discard_draft and close_comments. No post_comment call. One enabled send found but never clicked. Exact original IMEs restored and no uiautomator helper remains.",
+  "results": [
+    {
+      "phone": "QNBP",
+      "port": 5037,
+      "original_ime": "com.sec.android.inputmethod/.SamsungKeypad",
+      "version": "47.6.3",
+      "language": "ko",
+      "typed": true,
+      "send_matches": 1,
+      "draft_verified": true,
+      "cleared": true,
+      "closed": true,
+      "restored_ime": "com.sec.android.inputmethod/.SamsungKeypad",
+      "helper_installed": false
+    },
+    {
+      "phone": "QS8Z",
+      "port": 5037,
+      "original_ime": "com.android.adbkeyboard/.AdbIME",
+      "version": "47.5.3",
+      "language": "ko",
+      "typed": true,
+      "send_matches": 1,
+      "draft_verified": true,
+      "cleared": true,
+      "closed": true,
+      "restored_ime": "com.android.adbkeyboard/.AdbIME",
+      "helper_installed": false
+    },
+    {
+      "phone": "CT7H",
+      "port": 5038,
+      "original_ime": "com.samsung.android.honeyboard/.service.HoneyBoardService",
+      "version": "47.5.2",
+      "language": "ko",
+      "typed": true,
+      "send_matches": 1,
+      "draft_verified": true,
+      "cleared": true,
+      "closed": true,
+      "restored_ime": "com.samsung.android.honeyboard/.service.HoneyBoardService",
+      "helper_installed": false
+    },
+    {
+      "phone": "AXKB",
+      "port": 5038,
+      "original_ime": "com.samsung.android.honeyboard/.service.HoneyBoardService",
+      "version": "47.1.4",
+      "language": "ko",
+      "typed": true,
+      "send_matches": 1,
+      "draft_verified": true,
+      "cleared": true,
+      "closed": true,
+      "restored_ime": "com.samsung.android.honeyboard/.service.HoneyBoardService",
+      "helper_installed": false
+    }
+  ]
+}

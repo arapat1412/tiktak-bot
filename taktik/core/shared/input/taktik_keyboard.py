@@ -18,8 +18,13 @@ from taktik.core.shared.device.adb import run_adb_shell
 from taktik.core.shared.telemetry import emit_step
 
 
-TAKTIK_KEYBOARD_PKG = "com.alexal1.adbkeyboard"
-TAKTIK_KEYBOARD_IME = "com.alexal1.adbkeyboard/.AdbIME"
+TAKTIK_KEYBOARD_IME = os.environ.get("TAKTIK_KEYBOARD_IME", "com.alexal1.adbkeyboard/.AdbIME")
+# The public ADB Keyboard already used on some customer phones implements the
+# same B64/clear/keycode broadcasts. Keep the upstream default, and allow only
+# known compatible IDs: these values are interpolated into Android shell commands.
+if TAKTIK_KEYBOARD_IME not in ("com.alexal1.adbkeyboard/.AdbIME", "com.android.adbkeyboard/.AdbIME"):
+    raise ValueError("Unsupported TAKTIK_KEYBOARD_IME")
+TAKTIK_KEYBOARD_PKG = TAKTIK_KEYBOARD_IME.split("/", 1)[0]
 IME_MESSAGE_B64 = "ADB_INPUT_B64"
 IME_CLEAR_TEXT = "ADB_CLEAR_TEXT"
 # The keyboard given back when the phone's own was already the ADB one (Gboard, on the Pixels).

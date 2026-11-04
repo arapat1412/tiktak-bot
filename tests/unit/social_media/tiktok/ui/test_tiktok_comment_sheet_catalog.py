@@ -39,6 +39,13 @@ def test_the_sheet_announces_itself_before_anything_is_read():
     panel = [s for s in selectors if "resource-id" in s]
     assert panel and selectors[:len(panel)] == panel, selectors
     for selector in selectors[len(panel):]:
+        # Korean 47.5.3 exposes a nonclickable EditText with the keyboard hidden.
+        # Its sheet is proved by all three: header, Close, and input (real captures
+        # and non-sheet negatives are covered in test_tiktok_korean_screens.py).
+        if '//*[@content-desc="닫기"]' in selector:
+            assert 'translate(@text,' in selector and '"댓글"' in selector
+            assert '[//android.widget.EditText]' in selector
+            continue
         assert "//android.widget.EditText[" in selector, selector
         closes_the_sheet = selector.startswith(('//*[@content-desc="Fermer"][@clickable="true"]',
                                                 '//*[@content-desc="Close"][@clickable="true"]'))

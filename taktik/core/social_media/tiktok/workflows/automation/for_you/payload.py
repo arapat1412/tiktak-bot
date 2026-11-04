@@ -27,6 +27,11 @@ def for_you_config_from_payload(payload: Mapping[str, Any]) -> ForYouConfig:
     """Build the workflow config from a bridge or Agent payload."""
     return ForYouConfig(
         **video_settings_from_payload(payload),
+        browse_profile=payload.get("browseProfile", "standard"),
+        run_duration_minutes=payload.get("runDurationMinutes", 0),
+        warmup_videos=as_int(payload.get("warmupVideos"), 3),
+        action_gap_videos=as_int(payload.get("actionGapVideos"), 2),
+        rest_every_videos=as_int(payload.get("restEveryVideos"), 8),
         training_keywords=keyword_list(
             first_given(payload.get("trainingKeywords"), payload.get("training_keywords"))
         ),

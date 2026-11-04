@@ -34,7 +34,7 @@ def _joined(selectors):
 
 
 def test_available_locales():
-    assert set(available_locales()) == {"en", "fr"}
+    assert set(available_locales()) == {"en", "fr", "ko"}
 
 
 def test_profile_follow_button_localized():

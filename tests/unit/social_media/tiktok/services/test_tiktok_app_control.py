@@ -12,7 +12,7 @@ def completed() -> subprocess.CompletedProcess:
     return subprocess.CompletedProcess(args=[], returncode=0, stdout="", stderr="")
 
 
-def test_launch_app_non_blocking_uses_monkey_launcher():
+def test_launch_app_non_blocking_uses_explicit_activity_without_monkey():
     calls = []
 
     def fake_run(command, **kwargs):
@@ -26,23 +26,21 @@ def test_launch_app_non_blocking_uses_monkey_launcher():
         "-s",
         "device-1",
         "shell",
-        "monkey",
-        "-p",
-        "com.tiktok",
-        "-c",
-        "android.intent.category.LAUNCHER",
-        "1",
+        "am",
+        "start",
+        "-n",
+        f"com.tiktok/{TIKTOK_SPLASH_ACTIVITY}",
     ]
     assert calls[0][1]["timeout"] == 5
 
 
-def test_launch_app_non_blocking_falls_back_to_am_start_when_monkey_fails():
+def test_launch_app_non_blocking_falls_back_to_resolved_launcher_when_activity_fails():
     calls = []
 
     def fake_run(command, **kwargs):
         calls.append(command)
         if len(calls) == 1:
-            raise TimeoutError("monkey timeout")
+            raise TimeoutError("am timeout")
         return completed()
 
     assert launch_app_non_blocking("device-1", "com.tiktok", run=fake_run)
@@ -151,5 +149,24 @@ def test_restart_tiktok_package_falls_back_to_adb_launch(monkeypatch):
     assert calls[0][0:3] == ("stop", "device-1", "com.tiktok")
     assert calls[1][0:3] == ("launch", "device-1", "com.tiktok")
     assert messages == [
-        ("debug", "[launch] app_start failed (app_start failed), falling back to ADB monkey")
+        ("debug", "[launch] app_start failed (app_start failed), falling back to ADB am start")
     ]
+
+
+def test_launch_activity_error_uses_fallback_and_never_reports_failed_launch_as_success():
+    calls = []
+
+    def run(command, **kwargs):
+        calls.append(command)
+        return subprocess.CompletedProcess(command, 1, "", "Error: Activity not found")
+
+    assert not launch_app_non_blocking("phone", "com.tiktok", run=run)
+    assert len(calls) == 2
+    assert all("monkey" not in call for call in calls)
+
+
+def test_am_error_text_with_zero_exit_is_still_failure():
+    def run(command, **kwargs):
+        return subprocess.CompletedProcess(command, 0, "Error type 3", "")
+
+    assert not launch_app_non_blocking("phone", "com.tiktok", run=run)

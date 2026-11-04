@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hierarchy rotation="0">
+
+  <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2520]" drawing-order="0" hint="" display-id="0">
+
+    <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2520]" drawing-order="1" hint="" display-id="0">
+
+      <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0">
+
+        <node index="0" text="" resource-id="android:id/content" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="2" hint="" display-id="0">
+
+          <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0">
+
+            <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/v71" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="2" hint="" display-id="0">
+
+              <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0"/>
+
+              <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/v71" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="3" hint="" display-id="0">
+
+                <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/pwq" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="3" hint="" display-id="0">
+
+                  <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0"/>
+
+                  <node index="1" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="2" hint="" display-id="0">
+
+                    <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/tl_" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="3" hint="" display-id="0">
+
+                      <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/e0j" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="14" hint="" display-id="0"/>
+
+                      <node index="4" text="" resource-id="com.ss.android.ugc.trill:id/zq4" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,79][1080,200]" drawing-order="2" hint="" display-id="0">
+
+                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/zgd" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,79][1080,200]" drawing-order="2" hint="" display-id="0">
+
+                          <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/bry" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="@2131823554" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[17,79][139,200]" drawing-order="1" hint="" display-id="0"/>
+
+                        </node>
+
+                        <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/zhi" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,79][1080,200]" drawing-order="7" hint="" display-id="0"/>
+
+                      </node>
+
+                      <node index="5" text="" resource-id="com.ss.android.ugc.trill:id/tla" class="android.widget.ScrollView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,201][1080,2280]" drawing-order="4" hint="" display-id="0">
+
+                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/tl6" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,201][1080,1702]" drawing-order="1" hint="" display-id="0">
+
+                          <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/h5g" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,201][1080,783]" drawing-order="1" hint="" display-id="0">
+
+                            <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/video_header_layout" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,201][1080,783]" drawing-order="1" hint="" display-id="0">
+
+                              <node index="1" text="설명을 추가하세요..." resource-id="com.ss.android.ugc.trill:id/h_n" class="android.widget.EditText" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="true" password="false" selected="false" visible-to-user="true" bounds="[44,223][653,651]" drawing-order="4" hint="설명을 추가하세요..." display-id="0"/>
+
+                              <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/l0w" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="@2131823391" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[697,223][1036,634]" drawing-order="1" hint="" display-id="0"/>
+
+                              <node index="3" text="미리 보기" resource-id="com.ss.android.ugc.trill:id/fgc" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[725,245][863,292]" drawing-order="2" hint="" display-id="0"/>
+
+                              <node index="4" text="" resource-id="com.ss.android.ugc.trill:id/e1_" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[697,543][1036,634]" drawing-order="3" hint="" display-id="0">
+
+                                <node index="0" text="커버 편집" resource-id="com.ss.android.ugc.trill:id/e1a" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[714,543][1019,617]" drawing-order="1" hint="" display-id="0"/>
+
+                              </node>
+
+                              <node index="5" text="" resource-id="com.ss.android.ugc.trill:id/mxr" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,695][1052,783]" drawing-order="5" hint="" display-id="0">
+
+                                <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/afm" class="android.widget.HorizontalScrollView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,695][1052,783]" drawing-order="2" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/video_add_extra_buttons_container" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,695][483,783]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="해시태그" resource-id="com.ss.android.ugc.trill:id/bdx" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,695][272,783]" drawing-order="2" hint="" display-id="0"/>
+
+                                    <node index="1" text="멘션" resource-id="com.ss.android.ugc.trill:id/bdw" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[300,695][456,783]" drawing-order="3" hint="" display-id="0"/>
+
+                                  </node>
+
+                                </node>
+
+                              </node>
+
+                            </node>
+
+                          </node>
+
+                          <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/h4p" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,783][1080,827]" drawing-order="2" hint="" display-id="0"/>
+
+                          <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/tl3" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,827][1080,1702]" drawing-order="3" hint="" display-id="0">
+
+                            <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/n2_" class="android.view.View" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,827][1080,828]" drawing-order="1" hint="" display-id="0"/>
+
+                            <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/tlp" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,828][1080,1547]" drawing-order="2" hint="" display-id="0">
+
+                              <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,850][1080,1547]" drawing-order="1" hint="" display-id="0">
+
+                                <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/s2q" class="android.view.ViewGroup" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,850][1080,1103]" drawing-order="2" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/e3z" class="android.view.ViewGroup" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,850][1080,993]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/du2" class="android.view.ViewGroup" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,850][1080,993]" drawing-order="1" hint="" display-id="0">
+
+                                      <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,894][99,949]" drawing-order="2" hint="" display-id="0"/>
+
+                                      <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/zh2" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[99,850][252,993]" drawing-order="3" hint="" display-id="0">
+
+                                        <node index="0" text="위치" resource-id="com.ss.android.ugc.trill:id/zjs" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,894][197,946]" drawing-order="1" hint="" display-id="0"/>
+
+                                        <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/lax" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="추가 정보" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[197,894][252,949]" drawing-order="2" hint="" display-id="0"/>
+
+                                      </node>
+
+                                      <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/a2d" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,900][1036,944]" drawing-order="5" hint="" display-id="0">
+
+                                        <node NAF="true" index="0" text="" resource-id="com.ss.android.ugc.trill:id/a2b" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,900][1036,944]" drawing-order="2" hint="" display-id="0"/>
+
+                                      </node>
+
+                                    </node>
+
+                                  </node>
+
+                                  <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/tys" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,993][1080,1103]" drawing-order="3" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/tyr" class="androidx.recyclerview.widget.RecyclerView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="true" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,993][1080,1070]" drawing-order="1" hint="" display-id="0">
+
+                                      <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/wp1" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,993][510,1070]" drawing-order="1" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/o5_" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,993][510,1070]" drawing-order="1" hint="" display-id="0">
+
+                                          <node index="0" text="Example place" resource-id="com.ss.android.ugc.trill:id/z17" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[66,1009][488,1053]" drawing-order="2" hint="" display-id="0"/>
+
+                                        </node>
+
+                                      </node>
+
+                                      <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/wp1" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[532,993][928,1070]" drawing-order="2" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/o5_" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[532,993][928,1070]" drawing-order="1" hint="" display-id="0">
+
+                                          <node index="0" text="Example place" resource-id="com.ss.android.ugc.trill:id/z17" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[554,1009][906,1053]" drawing-order="2" hint="" display-id="0"/>
+
+                                        </node>
+
+                                      </node>
+
+                                      <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/wp1" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[950,993][1080,1070]" drawing-order="3" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/o5_" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[950,993][1080,1070]" drawing-order="1" hint="" display-id="0">
+
+                                          <node index="0" text="Example place" resource-id="com.ss.android.ugc.trill:id/z17" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[972,1009][1080,1053]" drawing-order="2" hint="" display-id="0"/>
+
+                                        </node>
+
+                                      </node>
+
+                                    </node>
+
+                                  </node>
+
+                                </node>
+
+                                <node index="1" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1103][1080,1249]" drawing-order="3" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1103][1080,1249]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/t1_" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1103][1080,1249]" drawing-order="1" hint="" display-id="0">
+
+                                      <node index="0" text="" resource-id="" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1103][1080,1249]" drawing-order="1" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/du2" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="링크 추가" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1103][1080,1249]" drawing-order="1" hint="" display-id="0">
+
+                                          <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="추가" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,1147][99,1202]" drawing-order="2" hint="" display-id="0"/>
+
+                                          <node index="1" text="링크 추가" resource-id="com.ss.android.ugc.trill:id/zjs" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,1150][283,1202]" drawing-order="3" hint="" display-id="0"/>
+
+                                          <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/tux_textCell_accessory" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[850,1144][1036,1196]" drawing-order="5" hint="" display-id="0">
+
+                                            <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[850,1144][1036,1196]" drawing-order="1" hint="" display-id="0">
+
+                                              <node index="0" text="상품 등" resource-id="com.ss.android.ugc.trill:id/ttv_multi" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[850,1144][975,1196]" drawing-order="1" hint="" display-id="0"/>
+
+                                              <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/kls" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1144][1036,1188]" drawing-order="2" hint="" display-id="0"/>
+
+                                            </node>
+
+                                          </node>
+
+                                        </node>
+
+                                      </node>
+
+                                    </node>
+
+                                  </node>
+
+                                </node>
+
+                                <node index="2" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1249][1080,1395]" drawing-order="4" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/z2f" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1249][1080,1395]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1249][1080,1395]" drawing-order="1" hint="" display-id="0">
+
+                                      <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/du2" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="모든 사용자가 이 게시물을 볼 수 있습니다" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1249][1080,1395]" drawing-order="1" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="공개" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,1293][99,1348]" drawing-order="2" hint="" display-id="0"/>
+
+                                        <node index="1" text="모든 사용자가 이 게시물을 볼 수 있습니다" resource-id="com.ss.android.ugc.trill:id/zjs" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,1296][827,1348]" drawing-order="3" hint="" display-id="0"/>
+
+                                        <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/tux_textCell_accessory" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1296][1036,1351]" drawing-order="5" hint="" display-id="0">
+
+                                          <node index="0" text="" resource-id="" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1296][1036,1351]" drawing-order="1" hint="" display-id="0">
+
+                                            <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1301][1036,1345]" drawing-order="2" hint="" display-id="0"/>
+
+                                          </node>
+
+                                        </node>
+
+                                      </node>
+
+                                    </node>
+
+                                  </node>
+
+                                </node>
+
+                                <node index="3" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1395][1080,1547]" drawing-order="5" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/gab" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1395][1080,1547]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1395][1080,1547]" drawing-order="1" hint="" display-id="0">
+
+                                      <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/du2" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="고급 설정" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1395][1080,1547]" drawing-order="1" hint="" display-id="0">
+
+                                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="설정" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,1439][99,1494]" drawing-order="2" hint="" display-id="0"/>
+
+                                        <node index="1" text="고급 설정" resource-id="com.ss.android.ugc.trill:id/zjs" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,1442][292,1500]" drawing-order="3" hint="" display-id="0"/>
+
+                                        <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/tux_textCell_accessory" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1442][1036,1497]" drawing-order="5" hint="" display-id="0">
+
+                                          <node index="0" text="" resource-id="" class="androidx.appcompat.widget.LinearLayoutCompat" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1442][1036,1497]" drawing-order="1" hint="" display-id="0">
+
+                                            <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/kkx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[992,1447][1036,1491]" drawing-order="2" hint="" display-id="0"/>
+
+                                          </node>
+
+                                        </node>
+
+                                      </node>
+
+                                    </node>
+
+                                  </node>
+
+                                </node>
+
+                              </node>
+
+                            </node>
+
+                            <node index="2" text="" resource-id="com.ss.android.ugc.trill:id/n5f" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1547][1080,1702]" drawing-order="3" hint="" display-id="0">
+
+                              <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1547][1080,1702]" drawing-order="1" hint="" display-id="0">
+
+                                <node index="0" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,1547][1080,1702]" drawing-order="1" hint="" display-id="0">
+
+                                  <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/xag" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,1591][1003,1658]" drawing-order="1" hint="" display-id="0">
+
+                                    <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/w92" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="공유" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[44,1597][99,1652]" drawing-order="1" hint="" display-id="0"/>
+
+                                    <node index="1" text="" resource-id="" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,1595][201,1653]" drawing-order="2" hint="" display-id="0">
+
+                                      <node index="0" text="공유" resource-id="com.ss.android.ugc.trill:id/waf" class="android.widget.TextView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[121,1595][201,1653]" drawing-order="1" hint="" display-id="0"/>
+
+                                    </node>
+
+                                  </node>
+
+                                  <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/n5h" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[1003,1602][1036,1646]" drawing-order="3" hint="" display-id="0">
+
+                                    <node NAF="true" index="0" text="" resource-id="com.ss.android.ugc.trill:id/vvx" class="android.widget.ImageView" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[1014,1602][1036,1646]" drawing-order="2" hint="" display-id="0"/>
+
+                                  </node>
+
+                                </node>
+
+                              </node>
+
+                            </node>
+
+                          </node>
+
+                        </node>
+
+                      </node>
+
+                      <node index="6" text="" resource-id="com.ss.android.ugc.trill:id/ci5" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,2280][1080,2478]" drawing-order="5" hint="" display-id="0">
+
+                        <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/uya" class="android.widget.RelativeLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,2280][1080,2313]" drawing-order="1" hint="" display-id="0">
+
+                          <node index="0" text="" resource-id="com.ss.android.ugc.trill:id/y9m" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,2280][1080,2313]" drawing-order="1" hint="" display-id="0"/>
+
+                        </node>
+
+                        <node index="3" text="" resource-id="com.ss.android.ugc.trill:id/gli" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[33,2313][1047,2445]" drawing-order="6" hint="" display-id="0">
+
+                          <node index="0" text="임시 저장" resource-id="com.ss.android.ugc.trill:id/gk0" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[33,2313][529,2445]" drawing-order="1" hint="" display-id="0"/>
+
+                          <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/deg" class="android.view.View" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[529,2313][551,2335]" drawing-order="2" hint="" display-id="0"/>
+
+                          <node index="2" text="게시" resource-id="com.ss.android.ugc.trill:id/tl7" class="android.widget.Button" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[551,2313][1047,2445]" drawing-order="3" hint="" display-id="0"/>
+
+                        </node>
+
+                      </node>
+
+                    </node>
+
+                  </node>
+
+                </node>
+
+                <node index="1" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0"/>
+
+              </node>
+
+            </node>
+
+            <node index="1" text="" resource-id="com.ss.android.ugc.trill:id/a3q" class="android.widget.LinearLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="1" hint="" display-id="0">
+
+              <node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,0][1080,2478]" drawing-order="2" hint="" display-id="0"/>
+
+            </node>
+
+          </node>
+
+        </node>
+
+      </node>
+
+    </node>
+
+    <node index="1" text="" resource-id="android:id/navigationBarBackground" class="android.view.View" package="com.ss.android.ugc.trill" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" visible-to-user="true" bounds="[0,2478][1080,2520]" drawing-order="2" hint="" display-id="0"/>
+
+  </node>
+
+</hierarchy>

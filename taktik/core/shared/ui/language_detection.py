@@ -30,7 +30,7 @@ module. Une variable partagée aurait fait passer la langue d'une application à
 from __future__ import annotations
 
 from dataclasses import is_dataclass
-from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 from loguru import logger
 
@@ -72,6 +72,7 @@ class LanguageDetection:
         *,
         min_score: float = DEFAULT_MIN_SCORE,
         min_ratio: float = DEFAULT_MIN_RATIO,
+        additional_vocabularies: Optional[Mapping[str, Sequence[str]]] = None,
     ) -> None:
         self.platform = platform
         self.fr_words = fr_words
@@ -80,6 +81,17 @@ class LanguageDetection:
         self.min_ratio = min_ratio
         self._fr_patterns = engine.compile_vocabulary(fr_words)
         self._en_patterns = engine.compile_vocabulary(en_words)
+        # Langues supplémentaires : seulement des DONNÉES de plus, jamais un second moteur.
+        # Une clé vide, ou « fr »/« en » (déjà couvertes), est ignorée plutôt que fusionnée.
+        self._extra_words: Dict[str, Set[str]] = {
+            code.lower(): set(words)
+            for code, words in (additional_vocabularies or {}).items()
+            if code and code.lower() not in ("fr", "en")
+        }
+        self._extra_patterns: Dict[str, Tuple[engine.WordPattern, ...]] = {
+            code: engine.compile_vocabulary(words)
+            for code, words in self._extra_words.items()
+        }
         # Par INSTANCE, jamais par module : voir l'en-tête.
         self._detected_lang: Optional[str] = None
         _detections[platform.lower()] = self
@@ -97,7 +109,7 @@ class LanguageDetection:
     # ── Détection ─────────────────────────────────────────────────────────────
 
     def detect_language(self, device) -> str:
-        """Détecte la langue de l'application depuis un seul dump. Rend 'en', 'fr' ou 'unknown'."""
+        """Détecte la langue de l'application depuis un seul dump. Rend la langue retenue ou 'unknown'."""
         try:
             xml = engine.read_dump(device)
             if not xml:
@@ -105,22 +117,19 @@ class LanguageDetection:
                 self._detected_lang = "unknown"
                 return self._detected_lang
 
-            outcome = engine.decide(
-                xml, self._fr_patterns, self._en_patterns,
-                min_score=self.min_score, min_ratio=self.min_ratio,
-            )
-            self._detected_lang = outcome.language
+            language, scores, matched, values_seen = self._analyze(xml)
+            self._detected_lang = language
 
-            log.info(
-                f"🌐 {self.platform} language detected: {self._detected_lang} "
-                f"(FR={outcome.fr_score}, EN={outcome.en_score})"
-            )
+            score_line = ", ".join(f"{code.upper()}={score}" for code, score in scores.items())
+            log.info(f"🌐 {self.platform} language detected: {self._detected_lang} ({score_line})")
             if self._detected_lang == "unknown":
+                detail = "; ".join(
+                    f"{code.upper()} matched {matched[code][:6] or 'nothing'}"
+                    for code in scores
+                )
                 log.info(
                     f"🌐 {self.platform} language undecided on this screen — keeping all locales "
-                    f"({outcome.values_seen} visible strings; "
-                    f"FR matched {outcome.fr_matched[:6] or 'nothing'}; "
-                    f"EN matched {outcome.en_matched[:6] or 'nothing'})."
+                    f"({values_seen} visible strings; {detail})."
                 )
             return self._detected_lang
 
@@ -128,6 +137,49 @@ class LanguageDetection:
             log.error(f"{self.platform} language detection failed: {exc}")
             self._detected_lang = "unknown"
             return self._detected_lang
+
+    def _patterns_by_language(self) -> Iterable[Tuple[str, Tuple[engine.WordPattern, ...]]]:
+        """(code, vocabulaire compilé), en/fr d'abord: l'ordre des logs et des arbitrages.
+
+        Les langues supplémentaires passent par la MÊME notation que fr/en — `visible_strings`
+        puis `score_patterns` — pour qu'aucune ne puisse gagner par un chemin plus indulgent.
+        """
+        yield "fr", self._fr_patterns
+        yield "en", self._en_patterns
+        for code, patterns in self._extra_patterns.items():
+            yield code, patterns
+
+    def _analyze(self, xml: str) -> Tuple[str, Dict[str, float], Dict[str, List[str]], int]:
+        """Note toutes les langues du dump une fois, puis ne tranche que si le vainqueur
+        devance CHACUNE des autres du facteur `min_ratio`."""
+        values = engine.visible_strings(xml)
+        scores: Dict[str, float] = {}
+        matched: Dict[str, List[str]] = {}
+        for code, patterns in self._patterns_by_language():
+            scores[code], matched[code] = engine.score_patterns(patterns, values)
+        return self._choose_language(scores), scores, matched, len(values)
+
+    def _choose_language(self, scores: Dict[str, float]) -> str:
+        """Le gagnant, ou 'unknown' : plancher, avance sur TOUTES les autres, et aucun ex aequo."""
+        if not self._extra_patterns:
+            # Chemin historique à l'identique quand aucune langue supplémentaire n'est fournie.
+            fr_score, en_score = scores["fr"], scores["en"]
+            if fr_score >= self.min_score and fr_score >= en_score * self.min_ratio:
+                return "fr"
+            if en_score >= self.min_score and en_score >= fr_score * self.min_ratio:
+                return "en"
+            return "unknown"
+
+        best = max(scores.values(), default=0.0)
+        if best < self.min_score:
+            return "unknown"
+        leaders = [code for code, score in scores.items() if score == best]
+        if len(leaders) != 1:
+            return "unknown"  # ex aequo: aucune langue ne l'emporte
+        winner = leaders[0]
+        if any(best < score * self.min_ratio for code, score in scores.items() if code != winner):
+            return "unknown"
+        return winner
 
     def redetect_if_unknown(self, device, optimize: Callable[[Any], str]) -> Optional[str]:
         """Retente la détection, mais SEULEMENT si la langue est encore indécise.
@@ -145,14 +197,53 @@ class LanguageDetection:
     # ── Sélecteurs ────────────────────────────────────────────────────────────
 
     def classify_selector(self, xpath: str) -> str:
-        return engine.classify_selector(xpath, self.fr_words, self.en_words)
+        base = engine.classify_selector(xpath, self.fr_words, self.en_words)
+        if not self._extra_words:
+            return base
+
+        # Une langue supplémentaire n'est reconnue que si SES mots sont dans un vrai attribut
+        # textuel (le moteur ignore les resource-id). Mélangée à fr/en ou à une autre langue
+        # supplémentaire, l'expression reste « neutral » : on la garde plutôt que de trancher.
+        hits = [
+            code for code, words in self._extra_words.items()
+            if engine.classify_selector(xpath, words, set()) != "neutral"
+        ]
+        if not hits:
+            return base
+        has_base_language = any(
+            engine.classify_selector(xpath, words, set()) != "neutral"
+            for words in (self.fr_words, self.en_words)
+        )
+        if len(hits) == 1 and not has_base_language:
+            return hits[0]
+        return "neutral"
 
     def filter_selectors(self, selectors: List[str], lang: str) -> List[str]:
         """Retire les sélecteurs visant l'autre langue. Une langue indécise les garde tous."""
-        return engine.filter_selectors(selectors, lang, self.fr_words, self.en_words)
+        if lang not in self._extra_words:
+            return engine.filter_selectors(selectors, lang, self.fr_words, self.en_words)
+
+        # Langue supplémentaire : on ne retire QUE ce qui est clairement d'une seule AUTRE
+        # langue. Neutre (resource-id seul), mélangé, et surtout tout sélecteur de la langue
+        # visée sont conservés — les chaînes de la langue cible ne disparaissent jamais.
+        return [
+            selector for selector in selectors
+            if self.classify_selector(selector) in ("neutral", lang)
+        ]
 
     def optimize_selector_dataclass(self, instance, lang: str) -> int:
         """Filtre en place chaque champ liste d'une dataclass de sélecteurs. Rend le compte retiré."""
+        if lang in self._extra_words:
+            removed = 0
+            for name in getattr(instance, "__dataclass_fields__", {}):
+                value = getattr(instance, name, None)
+                if not isinstance(value, list) or not all(isinstance(v, str) for v in value):
+                    continue
+                kept = self.filter_selectors(value, lang)
+                removed += len(value) - len(kept)
+                if len(kept) != len(value):
+                    setattr(instance, name, kept)
+            return removed
         return engine.optimize_selector_dataclass(instance, lang, self.fr_words, self.en_words)
 
     # ── Point d'entrée ────────────────────────────────────────────────────────

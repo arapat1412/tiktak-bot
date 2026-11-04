@@ -1,0 +1,5 @@
+-r requirements.txt
+# Qt Widgets only; no WebEngine/streaming dependency.
+PySide6-Essentials>=6.8,<6.13
+tzdata>=2025.1
+cryptography>=46,<49

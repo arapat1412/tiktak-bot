@@ -18,6 +18,7 @@ class PublishComposerSelectors:
     ])
     _post_btn_base: List[str] = field(default_factory=lambda: resource_ids("qrb", "post_btn"))
     _keyboard_overlay_indicators: List[str] = field(default_factory=lambda: [
+        '//*[@package="com.android.adbkeyboard"]',
         '//*[contains(@resource-id, "com.alexal1.adbkeyboard:id/switchButton")]',
         '//*[contains(@resource-id, "com.alexal1.adbkeyboard:id/subtitle")]',
         '//*[contains(@resource-id, "com.alexal1.adbkeyboard:id/typingNoProgress")]',

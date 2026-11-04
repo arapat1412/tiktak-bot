@@ -87,6 +87,19 @@ def start_tiktok_session(manager, *, notifier: Any = None, fetch_profile: bool =
     if not manager.restart():
         raise RuntimeError("Failed to restart TikTok app")
 
+    # Auto-detected variants need the same package patch as explicit overrides.
+    patch_clone_selectors(getattr(manager, "package_name", None), notifier)
+
+    # Lite can launch behind an unlabelled rewards card. Dismiss only its measured X.
+    from taktik.core.social_media.tiktok.ui.selectors.shell.popups import LITE_REWARD_CLOSE_SELECTOR
+
+    try:
+        close = manager.device_manager.device.xpath(LITE_REWARD_CLOSE_SELECTOR)
+        if close.exists:
+            close.click()
+    except Exception as exc:
+        logger.debug(f"Lite launch overlay check: {exc}")
+
     # A probe with a ceiling, not a fixed sleep.
     _wait_for_app_surface(manager.device_manager.device, timeout=4.0)
 

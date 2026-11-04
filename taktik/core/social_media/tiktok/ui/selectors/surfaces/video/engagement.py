@@ -16,6 +16,8 @@ class VideoEngagementSelectors:
     """Selectors for like, comment, favorite, and share controls."""
 
     _like_button_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/g9g"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/g90"]]',
         *resource_id_with_descendant("f57", "f4u"),
         *resource_id_with_descendant("g2w", "g2c"),
     ])
@@ -44,6 +46,7 @@ class VideoEngagementSelectors:
         return self._like_count_base + L("video_engagement.like_count_anchors")
 
     _comment_button_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/epw"]',
         *resource_ids("dtv", "em1"),
         '//android.widget.Button[contains(@content-desc, "comments")]',
     ])

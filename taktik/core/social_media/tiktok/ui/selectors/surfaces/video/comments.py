@@ -61,6 +61,21 @@ class CommentSelectors:
     # silent: when they go, the sheet reads as closed and every comment action refuses, which is
     # the safe direction -- unlike the composer, which failed by saying yes.
     _sheet_indicator_base: List[str] = field(default_factory=lambda: [
+        # Lite 47.1.4: its close icon has NO accessibility label, so the
+        # localized header+labelled-close fallback cannot recognize this sheet.
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/im6"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/wo5"]]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bs8"]]',
+        # Lite 47.1.4 can open a standalone composer instead of a count-header
+        # sheet (including landscape/first-comment). Require its whole panel,
+        # actual input and send control; the feed's comment bar is not enough.
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/f32"]'
+        '[.//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/ekt"]]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d1s"]]',
+        # Lite 47.5.3, Korean: panel, header and close, including inactive composer.
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ocq"]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/wna"]]'
+        '[.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/brw"]]',
         # 46.6.3 — the panel from y=768 to the bottom of the screen.
         '//*[contains(@resource-id, ":id/o3y")]',
         '//*[contains(@resource-id, ":id/ieb")]',
@@ -158,17 +173,57 @@ class CommentSelectors:
         '//android.widget.EditText[@clickable="true"]',
     ])
 
+    _comment_input_focused: List[str] = field(default_factory=lambda: [
+        '//android.widget.EditText[@focused="true"]',
+    ])
+
     @property
     def comment_input(self) -> List[str]:
-        return L("comment.comment_input") + self._comment_input_typed
+        # Lite keeps an inactive hint-only composer behind the focused overlay.
+        # Its hint still matches after typing, so the focused input must win.
+        return self._comment_input_focused + L("comment.comment_input") + self._comment_input_typed
+
+    _post_comment_button_base: List[str] = field(default_factory=lambda: [
+        # Lite 47.6.3: background and active mention controls coexist. The
+        # focused el5 input scopes d2x to the foreground composer (customer XML).
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/i23"]'
+        '[.//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/el5"]'
+        '[@focused="true"]]'
+        '//android.widget.Button[@resource-id="com.ss.android.ugc.tiktok.lite:id/d2x"]'
+        '[@clickable="true"][@enabled="true"]',
+        # Two mention controls can coexist: the inactive bar behind the active
+        # composer makes following::Button[1] select a LEFT attachment button.
+        # Anchor send inside the measured foreground composer instead.
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/i1i"]'
+        '[.//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/ekg"]]'
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d16"]'
+        '[@clickable="true"][@enabled="true"]',
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/f32"]'
+        '[.//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/ekt"]]'
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d1s"]'
+        '[@clickable="true"][@enabled="true"]',
+    ])
+
+    # Measured builds with a separate foreground composer must not fall through
+    # to the locale's positional selector, which can address a background draft.
+    _post_comment_button_strict: List[str] = field(default_factory=list)
 
     @property
     def post_comment_button(self) -> List[str]:
-        return L("comment.post_comment_button")
+        if self._post_comment_button_strict:
+            return self._post_comment_button_strict
+        return self._post_comment_button_base + L("comment.post_comment_button")
+
+    _close_button_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/im6"]'
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bs8"][@clickable="true"]',
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ocq"]'
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/brw"][@clickable="true"]',
+    ])
 
     @property
     def close_button(self) -> List[str]:
-        return L("comment.close_button")
+        return self._close_button_base + L("comment.close_button")
 
     # === The header, which also carries the total ===
     @property

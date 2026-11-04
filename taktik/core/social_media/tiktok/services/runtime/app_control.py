@@ -21,26 +21,26 @@ def launch_app_non_blocking(
     run: RunFn = subprocess.run,
     log: LogFn | None = None,
 ) -> bool:
-    """Launch a TikTok package without waiting for an activity to become ready."""
+    """Launch with am start; Monkey can inject rotation events before its first action."""
     try:
-        run(
+        result = run(
             [
                 "adb",
                 "-s",
                 device_id,
                 "shell",
-                "monkey",
-                "-p",
-                package_name,
-                "-c",
-                "android.intent.category.LAUNCHER",
-                "1",
+                "am",
+                "start",
+                "-n",
+                f"{package_name}/{TIKTOK_SPLASH_ACTIVITY}",
             ],
             capture_output=True,
             text=True,
             timeout=5,
         )
-        return True
+        if _started(result):
+            return True
+        return _launch_app_with_am_start(device_id, package_name, run=run, log=log)
     except Exception:
         return _launch_app_with_am_start(device_id, package_name, run=run, log=log)
 
@@ -79,7 +79,7 @@ def restart_tiktok_package(
         device.app_start(package_name, TIKTOK_SPLASH_ACTIVITY, stop=True)
         return True
     except Exception as exc:
-        _debug(log, f"[launch] app_start failed ({exc}), falling back to ADB monkey")
+        _debug(log, f"[launch] app_start failed ({exc}), falling back to ADB am start")
         force_stop_app_package(device_id, package_name, log=log)
         sleep(0.5)
         return launch_app_non_blocking(device_id, package_name, log=log)
@@ -93,7 +93,7 @@ def _launch_app_with_am_start(
     log: LogFn | None,
 ) -> bool:
     try:
-        run(
+        result = run(
             [
                 "adb",
                 "-s",
@@ -112,7 +112,7 @@ def _launch_app_with_am_start(
             text=True,
             timeout=5,
         )
-        return True
+        return _started(result)
     except Exception as exc:
         _debug(log, f"[launch] non-fatal launch error: {exc}")
         return False
@@ -121,3 +121,8 @@ def _launch_app_with_am_start(
 def _debug(log: LogFn | None, message: str) -> None:
     if log:
         log("debug", message)
+
+
+def _started(result: subprocess.CompletedProcess) -> bool:
+    output = (result.stdout or "") + (result.stderr or "")
+    return result.returncode == 0 and "Error" not in output and "Exception" not in output

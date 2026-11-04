@@ -144,6 +144,9 @@ class PopupHandler:
 
         # ── Handle in priority order ──────────────────────────────────
 
+        if 'manual_consent' in detected:
+            raise RuntimeError("TikTok requires a marketing-consent choice on the phone; resolve it manually before resuming.")
+
         if 'unlabelled_overlay' in detected:
             now = time.time()
             if now - self._last_overlay_try < UNLABELLED_OVERLAY_RETRY_SECONDS:
@@ -161,6 +164,14 @@ class PopupHandler:
                 self.logger.info("✅ System popup closed")
                 time.sleep(0.5)
                 return True
+
+        # A known Lite reward card must not pay for unrelated GDPR/dismiss polling.
+        if 'lite_reward' in detected:
+            if self.click.close_lite_reward_popup():
+                self.logger.info("Closed TikTok Lite reward popup via its X")
+                time.sleep(0.5)
+                return True
+            return False
 
         # Notification banner (e.g., "X sent you new messages")
         if 'notification_banner' in detected:

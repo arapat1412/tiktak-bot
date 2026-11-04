@@ -17,9 +17,97 @@ meta:
   app: tiktok
   package: com.zhiliaoapp.musically
   baseline_version: "43.1.4"
-  last_updated: "2026-09-29"
+  last_updated: "2026-10-29"
 
 versions:
+  # com.ss.android.ugc.trill 47.5.3, English, 2026-10-29. The capture shows the gallery open, but
+  # the 47.0.3 selection box `l34` is gone: the first cell's button is `l3z` [275,362][341,428],
+  # under the gallery's `viewpager_choose_media`; Next is `y3s` [551,2313][1047,2434]. The xpaths
+  # match the id exactly after `:id/` so `l3z` cannot catch a longer id. 47.0.3 and baseline
+  # entries carried along.
+  "47.5.3":
+    # Same panel/header/close in English and Korean, including an inactive composer.
+    # Baseline h7t is now an editor container, so do not carry it into this version.
+    comment._sheet_indicator_base:
+      - '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ocq"][.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/wna"]][.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/brw"]]'
+      - '//*[substring-after(@resource-id, ":id/")="ocj"][.//*[substring-after(@resource-id, ":id/")="wn4"]][.//*[substring-after(@resource-id, ":id/")="bs2"]]'
+    # Live SO-52A rehearsal: e1x opens Commercial Sounds; the actual remove cross is e1l.
+    # Removing it changes tv_top_text to Add sound. Editor Next is q25, beside Your Story.
+    publish_editor._sound_remove_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/e1f"][@clickable="true"][.//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/e1g"]]'
+      - '//*[substring-after(@resource-id, ":id/")="e1l" and @clickable="true"]'
+    publish_composer._caption_input_base:
+      - '//android.widget.EditText[@resource-id="com.ss.android.ugc.tiktok.lite:id/h_s"]'
+      - '//android.widget.EditText[substring-after(@resource-id, ":id/")="h_n"]'
+      - '//android.widget.EditText[contains(@resource-id, ":id/h9x")]'
+      - '//android.widget.EditText[contains(@resource-id, ":id/h8e")]'
+      - '//android.widget.EditText[contains(@resource-id, ":id/g19")]'
+      - '//android.widget.EditText[@clickable="true"][1]'
+      - '(//android.widget.EditText)[1]'
+    publish_composer._post_btn_base:
+      - '//android.widget.Button[@resource-id="com.ss.android.ugc.tiktok.lite:id/tld"]'
+      - '//android.widget.Button[substring-after(@resource-id, ":id/")="tl7"]'
+      - '//android.widget.Button[contains(@resource-id, ":id/tjf")]'
+      - '//android.widget.Button[contains(@resource-id, ":id/tiq")]'
+      - '//android.widget.Button[contains(@resource-id, ":id/qrb")]'
+      - '//*[contains(@resource-id, ":id/post_btn")]'
+    publish_media_picker._gallery_first_item_rids:
+      - '(//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/viewpager_choose_media"]//android.widget.Button[@resource-id="com.ss.android.ugc.tiktok.lite:id/l45"])[1]'
+      - '(//*[substring-after(@resource-id, ":id/")="viewpager_choose_media"]//android.widget.Button[substring-after(@resource-id, ":id/")="l3z"])[1]'
+      - '(//android.widget.GridView[contains(@resource-id, ":id/jn2")]/android.widget.FrameLayout)[1]'
+      - '(//*[contains(@resource-id, ":id/l34")])[1]'
+      - '(//android.widget.ImageView[contains(@resource-id, ":id/mub")])[1]'
+      - '(//android.widget.GridView[contains(@resource-id, ":id/i8o")]//android.widget.ImageView)[1]'
+      - '(//android.widget.ImageView[contains(@resource-id, ":id/nm8")])[1]'
+      - '(//android.widget.GridView[contains(@resource-id, ":id/ir_")]//android.widget.ImageView)[1]'
+      - '//*[contains(@resource-id, ":id/ir_")]//android.widget.ImageView[1]'
+    publish_media_picker._next_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/q2d"]'
+      - '//android.widget.Button[@resource-id="com.ss.android.ugc.tiktok.lite:id/y3z"]'
+      - '//android.widget.Button[substring-after(@resource-id, ":id/")="y3s"]'
+      - '//*[substring-after(@resource-id, ":id/")="q25" and @clickable="true"]'
+      - '//*[contains(@resource-id, ":id/q0y")]'
+      - '//*[contains(@resource-id, ":id/xyk")]'
+      - '//*[contains(@resource-id, ":id/q03")]'
+      - '//*[contains(@resource-id, ":id/uyb")]'
+      - '//*[contains(@resource-id, ":id/ooo")]'
+      - '//*[contains(@resource-id, ":id/w51")]'
+      - '//*[contains(@resource-id, ":id/next_btn")]'
+  # Sony SO-52A, Android 12, com.ss.android.ugc.trill 47.4.3, English.
+  # Read from the actual gallery/editor XML on 2026-10-25. Partial validation;
+  # this does not claim all workflows/languages of 47.4.3 are supported.
+  "47.4.3":
+    # h8e now also names a non-editable editor view; require an actual text input.
+    publish_composer._caption_input_base:
+      - '//android.widget.EditText[contains(@resource-id, ":id/h9x")]'
+      - '//android.widget.EditText[contains(@resource-id, ":id/h8e")]'
+      - '//android.widget.EditText[contains(@resource-id, ":id/g19")]'
+      - '//android.widget.EditText[@clickable="true"][1]'
+      - '(//android.widget.EditText)[1]'
+    publish_composer._post_btn_base:
+      - '//android.widget.Button[contains(@resource-id, ":id/tjf")]'
+      - '//android.widget.Button[contains(@resource-id, ":id/tiq")]'
+      - '//android.widget.Button[contains(@resource-id, ":id/qrb")]'
+      - '//*[contains(@resource-id, ":id/post_btn")]'
+    publish_media_picker._gallery_first_item_rids:
+      - '(//android.widget.GridView[contains(@resource-id, ":id/jn2")]/android.widget.FrameLayout)[1]'
+      - '(//*[contains(@resource-id, ":id/l34")])[1]'
+      - '(//android.widget.ImageView[contains(@resource-id, ":id/mub")])[1]'
+      - '(//android.widget.GridView[contains(@resource-id, ":id/i8o")]//android.widget.ImageView)[1]'
+      - '(//android.widget.ImageView[contains(@resource-id, ":id/nm8")])[1]'
+      - '(//android.widget.GridView[contains(@resource-id, ":id/ir_")]//android.widget.ImageView)[1]'
+      - '//*[contains(@resource-id, ":id/ir_")]//android.widget.ImageView[1]'
+    publish_editor._sound_remove_btn_base:
+      - '//*[contains(@resource-id, ":id/e1x") and @clickable="true"]'
+      - '//*[contains(@resource-id, ":id/e1d") and @clickable="true"]'
+    publish_media_picker._next_btn_base:
+      - '//*[contains(@resource-id, ":id/q0y")]'
+      - '//*[contains(@resource-id, ":id/xyk")]'
+      - '//*[contains(@resource-id, ":id/q03")]'
+      - '//*[contains(@resource-id, ":id/uyb")]'
+      - '//*[contains(@resource-id, ":id/ooo")]'
+      - '//*[contains(@resource-id, ":id/w51")]'
+      - '//*[contains(@resource-id, ":id/next_btn")]'
   # Add version-specific overrides here as new app versions are discovered.
   # Only include selectors that CHANGED — unchanged selectors inherit from Python.
   "46.6.3":
@@ -109,6 +197,7 @@ versions:
     # of the baseline ids (`ymg`, `ce9`, `cl2`) and neither locale label is on the screen, and
     # the production run of that day found nothing and tapped the effects carousel instead.
     publish_media_picker._upload_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d2q"][@clickable="true"]'
       - '//*[contains(@resource-id, ":id/upload_hot_area") and @clickable="true"]'
       - '//*[contains(@resource-id, ":id/ymg") and @clickable="true"]'
       - '//*[contains(@resource-id, ":id/ce9") and @clickable="true"]'

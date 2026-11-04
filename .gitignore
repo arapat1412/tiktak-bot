@@ -45,6 +45,7 @@ wheels/
 
 # Environment and local data
 .env
+/data/
 *.db
 *.sqlite3
 *.tmp
@@ -116,3 +117,13 @@ scripts/audits/audit_sqlite_schema_docs.py
 
 # Local denylist of the leak guard (scripts/hooks/leak_guard.py): real values, never versioned
 .leak-denylist
+
+# Local license credentials must never be committed.
+*.dpapi
+/license.key
+/license-clock.bin
+
+# Local agent notes and test caches
+/.agent/
+/.commandcode/
+.pytest_cache/

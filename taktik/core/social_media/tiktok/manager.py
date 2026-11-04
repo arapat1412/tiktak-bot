@@ -2,13 +2,13 @@ from typing import Optional
 
 from loguru import logger
 
-from taktik.core.clone.packages.package_map import get_package_variants
-from taktik.core.shared.device.app_inspection import is_platform_foreground
+from taktik.core.clone.packages.package_map import preferred_tiktok_packages
+from taktik.core.shared.device.app_inspection import is_platform_foreground, is_app_running
 from taktik.core.shared.device.manager import DeviceManager
 from taktik.core.shared.platform.social_media_base import SocialMediaBase
 
 # All known TikTok package names, in order of preference.
-TIKTOK_PACKAGES = list(get_package_variants("tiktok"))
+TIKTOK_PACKAGES = list(preferred_tiktok_packages())
 
 TIKTOK_MAIN_ACTIVITY = "com.ss.android.ugc.aweme.splash.SplashActivity"
 
@@ -18,10 +18,12 @@ class TikTokManager(SocialMediaBase):
     PACKAGE_NAME = "com.zhiliaoapp.musically"
     MAIN_ACTIVITY = TIKTOK_MAIN_ACTIVITY
 
-    def __init__(self, device_id: Optional[str] = None):
+    def __init__(self, device_id: Optional[str] = None, package_name: Optional[str] = None):
         super().__init__(device_id)
         self.device_manager = DeviceManager(device_id)
         self._detected_package: Optional[str] = None
+        from taktik.core.social_media.tiktok.services.runtime.session import selected_package
+        self._selected_package = package_name or selected_package()
 
     def _setup_logger(self):
         return logger.bind(module="tiktok")
@@ -33,6 +35,12 @@ class TikTokManager(SocialMediaBase):
         don't hit ADB on every call.
         """
         if self._detected_package:
+            return self._detected_package
+
+        if self._selected_package:
+            if not self.device_manager.is_app_installed(self._selected_package):
+                raise RuntimeError(f"Selected TikTok package is not installed: {self._selected_package}")
+            self._detected_package = self._selected_package
             return self._detected_package
 
         for pkg in TIKTOK_PACKAGES:
@@ -64,6 +72,8 @@ class TikTokManager(SocialMediaBase):
         """
         if not self.device_manager.connect():
             return False
+        if self._selected_package:
+            return is_app_running(self.device_manager.device, self.package_name, "tiktok")
         return is_platform_foreground(self.device_manager.device, "tiktok")
 
     def launch(self) -> bool:

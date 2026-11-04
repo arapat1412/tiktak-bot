@@ -1,0 +1,75 @@
+# Exact package/build overrides from the physical-phone corpus captured 2026-11-02.
+# Never merged numerically into newer builds or into Lite. See fixtures/standard/manifest.json.
+meta:
+  package: com.ss.android.ugc.trill
+versions:
+  "47.6.3":
+    navigation._home_tab_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/onv"]']
+    navigation._profile_tab_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/onx"]']
+    navigation._create_button_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/onr"]']
+    publish_creation_entry._create_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/onr"]']
+    publish_creation_entry._home_ready_indicators_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/onr"]']
+    comment._sheet_indicator_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/imj"][.//*[@resource-id="com.ss.android.ugc.trill:id/wl7"]][.//*[@resource-id="com.ss.android.ugc.trill:id/btu"]]'
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i1y"][.//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/el0"]][.//*[@resource-id="com.ss.android.ugc.trill:id/d33"]]'
+    comment._post_comment_button_strict:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i1y"][.//android.widget.EditText[@focused="true"][@resource-id="com.ss.android.ugc.trill:id/el0"]]//*[@resource-id="com.ss.android.ugc.trill:id/d33"][@enabled="true"][@clickable="true"]'
+    comment._close_button_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/imj"]//*[@resource-id="com.ss.android.ugc.trill:id/btu"][@clickable="true"]'
+    video_engagement._like_button_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/g9r"][.//*[@resource-id="com.ss.android.ugc.trill:id/g9a"]]'
+    video_engagement._comment_button_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/eqi"]']
+    publish_media_picker._upload_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/upload_hot_area"][@clickable="true"]']
+    publish_media_picker._gallery_first_item_rids:
+      - '(//*[@resource-id="com.ss.android.ugc.trill:id/viewpager_choose_media"]//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/l3a"])[1][not(//*[@resource-id="com.ss.android.ugc.trill:id/q14"])]'
+    publish_media_picker._gallery_picker_xml_markers: ['com.ss.android.ugc.trill:id/viewpager_choose_media']
+    publish_media_picker._gallery_blocker_xml_markers: ['com.ss.android.ugc.trill:id/q14', 'com.ss.android.ugc.trill:id/had']
+    publish_media_picker._next_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/q14"][@clickable="true"]'
+      - '//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/y1w"][@clickable="true"]'
+    publish_editor._sound_chip_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/tv_top_text"]']
+    publish_editor._sound_remove_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/e2i"][@clickable="true"]']
+    publish_composer._caption_input_base: ['//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/had"]']
+    publish_composer._post_btn_base: ['//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/tk5"]']
+    publish_composer._post_screen_xml_markers_base: ['com.ss.android.ugc.trill:id/had']
+  "47.5.3": &trill475
+    comment._sheet_indicator_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/iml"][.//*[@resource-id="com.ss.android.ugc.trill:id/wn4"]][.//*[@resource-id="com.ss.android.ugc.trill:id/bs2"]]'
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i1d"][.//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/ekb"]][.//*[@resource-id="com.ss.android.ugc.trill:id/d1b"]]'
+    comment._post_comment_button_strict:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i1d"][.//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/ekb"][@focused="true"]]//*[@resource-id="com.ss.android.ugc.trill:id/d1b"][@enabled="true"][@clickable="true"]'
+    comment._close_button_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/iml"]//*[@resource-id="com.ss.android.ugc.trill:id/bs2"][@clickable="true"]']
+    publish_media_picker._upload_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/upload_hot_area"][@clickable="true"]']
+    publish_media_picker._gallery_first_item_rids:
+      - '(//*[@resource-id="com.ss.android.ugc.trill:id/viewpager_choose_media"]//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/l3z"])[1][not(//*[@resource-id="com.ss.android.ugc.trill:id/q25"])]'
+    publish_media_picker._gallery_picker_xml_markers: ['com.ss.android.ugc.trill:id/viewpager_choose_media']
+    publish_media_picker._gallery_blocker_xml_markers: ['com.ss.android.ugc.trill:id/q25', 'com.ss.android.ugc.trill:id/h_n']
+    publish_media_picker._next_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/q25"][@clickable="true"]'
+      - '//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/y3s"][@clickable="true"]'
+    publish_editor._sound_chip_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/tv_top_text"]']
+    publish_editor._sound_remove_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/e1l"][@clickable="true"]']
+    publish_composer._caption_input_base: ['//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/h_n"]']
+    publish_composer._post_btn_base: ['//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/tl7"]']
+    publish_composer._post_screen_xml_markers_base: ['com.ss.android.ugc.trill:id/h_n']
+  "47.5.2": *trill475
+  "47.1.4":
+    comment._sheet_indicator_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/im0"][.//*[@resource-id="com.ss.android.ugc.trill:id/wny"]][.//*[@resource-id="com.ss.android.ugc.trill:id/bsd"]]'
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i0c"][.//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/eko"]][.//*[@resource-id="com.ss.android.ugc.trill:id/d1y"]]'
+    comment._post_comment_button_strict:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/i0c"][.//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/eko"][@focused="true"]]//*[@resource-id="com.ss.android.ugc.trill:id/d1y"][@enabled="true"][@clickable="true"]'
+    comment._close_button_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/im0"]//*[@resource-id="com.ss.android.ugc.trill:id/bsd"][@clickable="true"]']
+    publish_media_picker._upload_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/upload_hot_area"][@clickable="true"]']
+    publish_media_picker._gallery_first_item_rids:
+      - '(//*[@resource-id="com.ss.android.ugc.trill:id/viewpager_choose_media"]//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/l4o"])[1][not(//*[@resource-id="com.ss.android.ugc.trill:id/q2v"])]'
+    publish_media_picker._gallery_picker_xml_markers: ['com.ss.android.ugc.trill:id/viewpager_choose_media']
+    publish_media_picker._gallery_blocker_xml_markers: ['com.ss.android.ugc.trill:id/q2v']
+    publish_editor._sound_chip_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/tv_top_text"]']
+    publish_editor._sound_remove_btn_base: ['//*[@resource-id="com.ss.android.ugc.trill:id/e1z"][@clickable="true"]']
+    publish_media_picker._next_btn_base:
+      - '//*[@resource-id="com.ss.android.ugc.trill:id/q2v"]/ancestor-or-self::*[@clickable="true"][1]'
+      - '//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/y4k"][@clickable="true"]'
+    publish_composer._caption_input_base: ['//android.widget.EditText[@resource-id="com.ss.android.ugc.trill:id/h9r"]']
+    publish_composer._post_btn_base: ['//android.widget.Button[@resource-id="com.ss.android.ugc.trill:id/tl8"]']
+    publish_composer._post_screen_xml_markers_base: ['com.ss.android.ugc.trill:id/h9r']

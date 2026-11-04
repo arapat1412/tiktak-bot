@@ -63,6 +63,13 @@ def tap_upload_button(
     for the same ids. Nothing else. When no selector answers, nothing is tapped and the caller
     stops: the two coordinate fallbacks that stood here tapped whatever lay under a fixed point,
     and on TikTok 47.0.3 that was the effects carousel of the camera (2026-09-27)."""
+    # Standard TikTok can open its media grid directly from Create.
+    # One dump avoids adding per-selector waits to the legacy Lite camera path.
+    try:
+        if selectors.has_gallery_picker_marker(device.dump_hierarchy(compressed=False)):
+            return True
+    except Exception:
+        pass
     if tap_element(device, selectors.upload_btn, timeout=6.0):
         return True
     if tap_upload_button_from_dump(device, selectors=selectors, log=log):

@@ -1,5 +1,7 @@
 """Video workflow callback wiring for TikTok bridge runners."""
 
+import os
+
 from bridges.tiktok.common.ipc import (
     logger,
     send_action,
@@ -84,6 +86,10 @@ def send_final_video_stats(stats, workflow_name: str = "Workflow") -> None:
     showing (`feed_stuck`): the desktop turns it into the run's stop motive, as for the other
     TikTok workflows.
     """
+    # Full final evidence includes comments, which the legacy live stats omit.
+    # New event is additive: existing desktop consumers can ignore it.
+    if os.environ.get("TAKTIK_CUSTOMER_EVENTS") == "1":
+        send_message("video_result", stats=stats.to_dict())
     send_stats(
         videos_watched=stats.videos_watched,
         videos_liked=stats.videos_liked,
@@ -92,12 +98,16 @@ def send_final_video_stats(stats, workflow_name: str = "Workflow") -> None:
         videos_skipped=stats.videos_skipped,
         errors=stats.errors,
     )
-    logger.success(f"✅ {workflow_name} completed: {stats.to_dict()}")
+    reason = getattr(stats, "completion_reason", "")
+    stopped = bool(reason and reason != "duration_limit")
+    if stopped:
+        logger.warning(f"{workflow_name} stopped: {reason}; {stats.to_dict()}")
+    else:
+        logger.success(f"✅ {workflow_name} completed: {stats.to_dict()}")
     message = (
-        f"{workflow_name} completed: {stats.videos_watched} videos, "
+        f"{workflow_name} {'stopped' if stopped else 'completed'}: {stats.videos_watched} videos, "
         f"{stats.videos_liked} likes, {stats.users_followed} follows"
     )
-    reason = getattr(stats, "completion_reason", "")
     if reason:
         send_message("status", status="completed", message=message, completion_reason=reason)
     else:

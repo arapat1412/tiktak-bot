@@ -331,16 +331,22 @@ def apply_overrides_for_device(device_id: str) -> Dict[str, int]:
     Best-effort by construction: it returns what it managed to apply and never raises, because
     failing to read a version must not stop a run from starting.
     """
-    from taktik.core.clone.packages.package_map import get_package_variants
+    from taktik.core.clone.packages.package_map import get_package_variants, preferred_tiktok_packages
     from taktik.core.shared.device.app_inspection import get_installed_app_version
 
     applied: Dict[str, int] = {}
     for platform in ("instagram", "tiktok"):
         try:
-            for package in get_package_variants(platform):
+            packages = preferred_tiktok_packages() if platform == "tiktok" else get_package_variants(platform)
+            if platform == "tiktok":
+                from taktik.core.social_media.tiktok.services.runtime.session import selected_package
+                if selected_package():
+                    packages = (selected_package(),)
+            for package in packages:
                 version = get_installed_app_version(device_id, package, platform)
                 if version:
-                    applied[platform] = apply_version_overrides(platform, version)
+                    variant = {"package_name": package} if platform == "tiktok" else {}
+                    applied[platform] = apply_version_overrides(platform, version, **variant)
                     break
         except Exception as exc:
             logger.warning(f"[Compat] Could not apply {platform} overrides for {device_id}, baseline kept: {exc}")
@@ -351,6 +357,8 @@ def apply_version_overrides(
     app: str,
     detected_version: str,
     overrides_dir: Optional[str] = None,
+    *,
+    package_name: Optional[str] = None,
 ) -> int:
     """Patch selector singletons in place for the detected app version, starting again from the
     baseline: what an earlier call replaced is restored first."""
@@ -386,6 +394,11 @@ def apply_version_overrides(
         return 0
 
     overrides = _resolve_overrides_for_version(data, detected_version)
+    # Obfuscated IDs are package/build specific. Do not inherit standard IDs
+    # across builds, or apply them to Lite with the same marketing version.
+    if app == "tiktok" and package_name == "com.ss.android.ugc.trill":
+        variant = _load_yaml_overrides("tiktok_trill", base_dir)
+        overrides.update(variant.get("versions", {}).get(detected_version, {}))
     if not overrides:
         logger.info(f"[Compat] No applicable overrides for {app} v{detected_version}")
         return 0

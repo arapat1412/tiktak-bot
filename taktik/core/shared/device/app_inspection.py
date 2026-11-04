@@ -75,6 +75,11 @@ def is_platform_foreground(device: Any, platform: str) -> bool:
     """
     from taktik.core.clone.packages.package_map import belongs_to_platform
 
+    if platform == "tiktok":
+        from taktik.core.social_media.tiktok.services.runtime.session import selected_package
+        selected = selected_package()
+        if selected:
+            return foreground_package(device) == selected
     return belongs_to_platform(foreground_package(device), platform)
 
 

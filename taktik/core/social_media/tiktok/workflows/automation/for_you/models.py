@@ -2,11 +2,13 @@
 
 from typing import Optional, List
 from dataclasses import dataclass, field
+import math
 
 
 @dataclass
 class ForYouConfig:
     """Configuration of the For You workflow."""
+
     
     # Nombre de vidéos à traiter
     max_videos: int = 50
@@ -59,3 +61,30 @@ class ForYouConfig:
     skip_already_followed: bool = True
     skip_ads: bool = True  # Skip the ads automatically
     follow_back_suggestions: bool = False  # When true, follow back the suggestions; otherwise mark them as not interesting
+
+    # Append fields to preserve positional construction by existing callers.
+    browse_profile: str = "standard"
+    warmup_videos: int = 3
+    action_gap_videos: int = 2
+    rest_every_videos: int = 8
+    run_duration_minutes: int = 0
+
+    def __post_init__(self):
+        if (not isinstance(self.run_duration_minutes, int)
+                or isinstance(self.run_duration_minutes, bool)
+                or not 0 <= self.run_duration_minutes <= 1440):
+            raise ValueError("Invalid browsing duration in minutes")
+        if self.run_duration_minutes and self.browse_profile != "natural":
+            raise ValueError("Timed browsing requires the natural profile")
+        if self.browse_profile not in ("standard", "natural"):
+            raise ValueError("Unknown browse profile")
+        if self.browse_profile != "natural":
+            return
+        for value, minimum in ((self.warmup_videos, 0), (self.action_gap_videos, 0),
+                               (self.rest_every_videos, 1)):
+            if not isinstance(value, int) or not minimum <= value <= 1000:
+                raise ValueError("Invalid natural browsing interval")
+        for low, high in ((self.min_watch_time, self.max_watch_time),
+                          (self.pause_duration_min, self.pause_duration_max)):
+            if not (math.isfinite(low) and math.isfinite(high) and 0.1 <= low <= high <= 3600):
+                raise ValueError("Invalid natural browsing duration")

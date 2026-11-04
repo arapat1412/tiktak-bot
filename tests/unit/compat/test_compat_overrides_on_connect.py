@@ -22,7 +22,9 @@ def fake_versions(monkeypatch):
         asked.append(package_name)
         return {"com.instagram.android": "442.0.0.46.79", "com.ss.android.ugc.trill": "46.6.3"}.get(package_name)
 
-    def _apply(platform, version):
+    def _apply(platform, version, *, package_name=None):
+        if platform == "tiktok":
+            assert package_name == "com.ss.android.ugc.trill"
         patched.append((platform, version))
         return 7
 

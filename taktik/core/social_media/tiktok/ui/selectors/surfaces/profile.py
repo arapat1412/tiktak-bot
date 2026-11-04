@@ -23,6 +23,7 @@ class ProfileSelectors:
 
     # === Profile header ===
     _profile_photo_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/bny"]',
         '//*[contains(@resource-id, ":id/b5s")]',
     ])
 
@@ -52,6 +53,7 @@ class ProfileSelectors:
 
     # === Profile information ===
     _display_name_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/t_0"]',
         '//*[contains(@resource-id, ":id/qf8")]',
     ])
 
@@ -60,6 +62,7 @@ class ProfileSelectors:
         return self._display_name_base + L("profile.display_name_anchors")
 
     _username_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/tbi"]',
         '//*[contains(@resource-id, ":id/qh5")]',
     ])
 
@@ -77,6 +80,7 @@ class ProfileSelectors:
 
     # === Counters (one id for the values, another for the labels) ===
     _stat_value_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ta2"]',
         '//*[contains(@resource-id, ":id/qfw")]',
     ])
 
@@ -85,6 +89,7 @@ class ProfileSelectors:
         return self._stat_value_base + L("profile.stat_value_anchors")
 
     _stat_label_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/ta1"]',
         '//*[contains(@resource-id, ":id/qfv")]',
     ])
 

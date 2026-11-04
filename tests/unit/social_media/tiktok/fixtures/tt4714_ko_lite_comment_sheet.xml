@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hierarchy rotation="0">
+  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/im6" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,787][1080,2274]" hint="">
+    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/od7" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,787][1080,2274]" hint="">
+      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/eni" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,787][1080,903]" hint="">
+        <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/enh" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,787][1080,903]" hint="">
+          <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/wo6" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[0,795][1080,903]" hint="">
+            <node text="‎댓글 129개" resource-id="com.ss.android.ugc.tiktok.lite:id/wo5" class="android.widget.TextView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[386,795][598,903]" hint="" />
+          </node>
+        </node>
+      </node>
+      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/enk" class="androidx.viewpager.widget.ViewPager" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,903][1080,2274]" hint="">
+        <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/im6" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,903][1080,2274]" hint="">
+          <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/od7" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,903][1080,2274]" hint="">
+            <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/i2w" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2116][1080,2274]" hint="">
+              <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/lin" class="android.widget.LinearLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2116][1080,2274]" hint="">
+                <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ek7" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2117][1080,2274]" hint="">
+                  <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/eks" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2117][1080,2274]" hint="">
+                    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/leo" class="android.widget.FrameLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2117][1080,2274]" hint="">
+                      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ekr" class="android.view.ViewGroup" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,2117][1080,2274]" hint="">
+                        <node text="따듯한 말 한마디 해주세요..." resource-id="com.ss.android.ugc.tiktok.lite:id/ekt" class="android.widget.EditText" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[189,2138][721,2219]" hint="따듯한 말 한마디 해주세요..." />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/ejs" class="android.widget.RelativeLayout" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="false" enabled="true" focused="false" bounds="[0,787][1054,913]" hint="">
+      <node text="" resource-id="com.ss.android.ugc.tiktok.lite:id/bs8" class="android.widget.ImageView" package="com.ss.android.ugc.tiktok.lite" content-desc="" clickable="true" enabled="true" focused="false" bounds="[980,813][1054,887]" hint="" />
+    </node>
+  </node>
+</hierarchy>

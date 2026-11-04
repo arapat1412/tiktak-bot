@@ -12,12 +12,14 @@ class PublishMediaPickerSelectors:
     """Selectors for camera/gallery entry and next-step picking."""
 
     _upload_btn_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/d2q"][@clickable="true"]',
         '//*[contains(@resource-id, ":id/ymg") and @clickable="true"]',
         '//*[contains(@resource-id, ":id/ce9") and @clickable="true"]',
         '//*[contains(@resource-id, ":id/cl2") and @clickable="true"]',
         *resource_ids("ymg", "ce9", "cl2"),
     ])
     _upload_dump_resource_ids: List[str] = field(default_factory=lambda: [
+        "d2q",
         "ymg",
         "ce9",
         "cl2",
@@ -30,11 +32,13 @@ class PublishMediaPickerSelectors:
         '//*[contains(@resource-id, ":id/ir_")]//android.widget.ImageView[1]',
     ])
     _gallery_picker_xml_markers: List[str] = field(default_factory=lambda: [
+        'com.ss.android.ugc.tiktok.lite:id/jnt',
         ":id/i8o",
         ":id/ir_",
         ":id/mub",
         ":id/nm8",
     ])
+    _gallery_blocker_xml_markers: List[str] = field(default_factory=list)
     _camera_creation_copy_markers: List[str] = field(default_factory=lambda: [
         "ajouter un son",
         "add sound",
@@ -73,6 +77,8 @@ class PublishMediaPickerSelectors:
 
     def has_gallery_picker_marker(self, xml: str) -> bool:
         lowered_xml = xml.lower()
+        if any(marker.lower() in lowered_xml for marker in self._gallery_blocker_xml_markers):
+            return False
         return any(marker.lower() in lowered_xml for marker in self._gallery_picker_xml_markers)
 
     def has_camera_creation_marker(self, xml: str) -> bool:

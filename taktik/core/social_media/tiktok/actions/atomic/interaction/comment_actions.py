@@ -31,6 +31,21 @@ from taktik.core.social_media.tiktok.ui.selectors.surfaces.video.comments import
 from taktik.core.shared.behavior.tap import tap_element_human
 
 
+def comment_composer_is_empty(inputs) -> bool:
+    """Require a visible input; Android can expose its hint as the input's text."""
+    if not inputs:
+        return False
+    try:
+        for element in inputs:
+            text = as_xml_dumped(element.text or "").strip()
+            hint = as_xml_dumped(getattr(element, "attrib", {}).get("hint", "") or "").strip()
+            if text and (not hint or text != hint):
+                return False
+        return True
+    except Exception:
+        return False
+
+
 class CommentActions(BaseAction):
     """Open, read and write the comment sheet of the video on screen."""
 
@@ -91,7 +106,11 @@ class CommentActions(BaseAction):
             return True
         if self._find_and_click(self.comment_selectors.close_button, timeout=3):
             time.sleep(0.8)
-        else:
+        # The IME and an incidental overlay can each consume Back. Re-read before
+        # each further Back so a successful close cannot navigate away from the video.
+        for _ in range(3):
+            if not self.is_comment_sheet_open():
+                return True
             self.device.press("back")
             time.sleep(0.8)
         return not self.is_comment_sheet_open()
@@ -328,7 +347,7 @@ class CommentActions(BaseAction):
     # Write
     # ------------------------------------------------------------------
 
-    def post_comment(self, text: str) -> bool:
+    def post_comment(self, text: str, *, single_attempt: bool = False) -> bool:
         """Type a comment and send it, confirming it actually left the composer.
 
         The send button carries an UNRESOLVED Android resource as its description on both
@@ -352,11 +371,17 @@ class CommentActions(BaseAction):
             self.logger.warning(
                 "post_comment: no send button once the text was typed — leaving the draft alone")
             return False
+        if len(send) != 1:
+            self.logger.warning(
+                "post_comment: ambiguous send controls — leaving the draft alone")
+            return False
 
         try:
             # Le bouton « envoyer » d'un commentaire : geste d'interaction publique, repete a
             # chaque cible. C'est celui ou le centre exact se remarque le plus.
             if not tap_element_human(self.device, send[0], logger=self.logger):
+                if single_attempt:
+                    return False  # Delivery may be uncertain; never send twice.
                 send[0].click()
         except Exception as e:
             self.logger.warning(f"post_comment: could not tap send: {e}")
@@ -366,7 +391,9 @@ class CommentActions(BaseAction):
         # A comment is posted when the composer EMPTIES. Reporting the tap would record a comment
         # that is still sitting in the field — the exact failure `send_message` had.
         for _ in range(8):
-            if not self._composer_holds(comment):
+            if comment_composer_is_empty(
+                first_matching(self.device, self.comment_selectors.comment_input)
+            ):
                 self.logger.success("💬 Comment posted")
                 return True
             time.sleep(0.5)
@@ -455,6 +482,12 @@ class CommentActions(BaseAction):
         serial = self._get_device_serial()
         # Before the tap: a keyboard switched after it can cost the field its focus.
         ensure_taktik_keyboard(serial)
+        # Changing IME can expand/collapse the sheet and move its composer. The
+        # element resolved before that switch carries stale bounds (Lite on Android 16).
+        inputs = first_matching(self.device, self.comment_selectors.comment_input)
+        if not inputs:
+            self.logger.warning("The comment composer disappeared after keyboard activation")
+            return False
         try:
             if not tap_element_human(self.device, inputs[0], logger=self.logger):
                 inputs[0].click()

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reduced from the live Sony SO-52A composer reached by q25, 2026-10-29. -->
+<hierarchy rotation="0">
+  <node class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" bounds="[0,0][1080,2520]">
+    <node class="android.widget.EditText" resource-id="com.ss.android.ugc.trill:id/h_n" text="Add description..." clickable="true" bounds="[44,223][653,651]"/>
+    <node class="android.widget.Button" resource-id="com.ss.android.ugc.trill:id/gk0" text="Drafts" clickable="true" bounds="[33,2313][529,2445]"/>
+    <node class="android.widget.Button" resource-id="com.ss.android.ugc.trill:id/tl7" text="Post" clickable="true" bounds="[551,2313][1047,2445]"/>
+  </node>
+</hierarchy>

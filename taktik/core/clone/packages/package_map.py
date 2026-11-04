@@ -2,6 +2,8 @@
 
 from typing import Optional
 
+TIKTOK_LITE_PACKAGE = "com.ss.android.ugc.tiktok.lite"
+
 ORIGINAL_PACKAGES = {
     "instagram": "com.instagram.android",
     "tiktok": "com.zhiliaoapp.musically",
@@ -14,6 +16,7 @@ PACKAGE_VARIANTS = {
         "com.ss.android.ugc.trill",
         "com.ss.android.ugc.aweme",
         "com.bytedance.trill",
+        TIKTOK_LITE_PACKAGE,
     ],
 }
 
@@ -35,6 +38,11 @@ def get_original_package(platform: str) -> str:
 def get_package_variants(platform: str) -> tuple[str, ...]:
     """Return known installable package names for a supported platform."""
     return tuple(PACKAGE_VARIANTS[platform])
+
+
+def preferred_tiktok_packages() -> tuple[str, ...]:
+    """Prefer Lite when installed, retaining the regional full-app fallbacks."""
+    return tuple(dict.fromkeys((TIKTOK_LITE_PACKAGE, *get_package_variants("tiktok"))))
 
 
 def get_clone_prefixes(platform: str) -> tuple[str, ...]:

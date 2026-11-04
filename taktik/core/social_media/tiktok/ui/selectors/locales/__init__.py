@@ -25,11 +25,13 @@ from typing import Dict, List, Optional, Set
 
 from taktik.core.social_media.tiktok.ui.selectors.locales import en as _en
 from taktik.core.social_media.tiktok.ui.selectors.locales import fr as _fr
+from taktik.core.social_media.tiktok.ui.selectors.locales import ko as _ko
 
 # lang code -> { "<surface>.<field>": [xpath fragment, ...] }
 _LOCALES: Dict[str, Dict[str, List[str]]] = {
     "en": _en.STRINGS,
     "fr": _fr.STRINGS,
+    "ko": _ko.STRINGS,
 }
 
 _active: Optional[str] = None  # active language code, or None when unknown

@@ -96,3 +96,21 @@ def test_without_a_refusal_the_publication_runs_as_before(publish):
 
     assert result["error_type"] == "publish_not_committed"
     assert publish.seen["commit_waits"] == 1
+
+
+def test_fallback_post_tap_still_requires_commit_evidence(publish, monkeypatch):
+    taps = []
+
+    def tap(*args, **kwargs):
+        taps.append(1)
+        if len(taps) == 1:
+            return False
+        publish.seen["posted"] = True
+        return True
+
+    monkeypatch.setattr(module, "tap_element", tap)
+    result = publish(refusing=False)
+    assert len(taps) == 2
+    assert publish.seen["commit_waits"] == 1
+    assert result["success"] is False
+    assert result["error_type"] == "publish_not_committed"

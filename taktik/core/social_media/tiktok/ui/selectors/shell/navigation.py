@@ -30,6 +30,7 @@ class NavigationSelectors:
         return self._bottom_nav_container_base + L("navigation.bottom_nav_container_anchors")
 
     _home_tab_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/op8"]',
         '//*[contains(@resource-id, ":id/mkq")]',
         '//*[contains(@resource-id, ":id/ofc")]',  # 46.6.3
     ])
@@ -47,6 +48,7 @@ class NavigationSelectors:
         return self._friends_tab_base + L("navigation.friends_tab")
 
     _create_button_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/op4"]',
         '//*[contains(@resource-id, ":id/mkn")]',
     ])
 
@@ -55,6 +57,7 @@ class NavigationSelectors:
         return self._create_button_base + L("navigation.create_button")
 
     _inbox_tab_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/op9"]',
         '//*[contains(@resource-id, ":id/mkr")]',
         '//*[contains(@content-desc, "Messages")]',
     ])
@@ -64,6 +67,7 @@ class NavigationSelectors:
         return self._inbox_tab_base + L("navigation.inbox_tab")
 
     _profile_tab_base: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/op_"]',
         '//*[contains(@resource-id, ":id/mks")]',
         '//*[contains(@resource-id, ":id/ofe")]',  # 46.6.3
     ])
@@ -94,11 +98,15 @@ class NavigationSelectors:
     def shop_tab(self) -> List[str]:
         return self._shop_tab_base + L("navigation.shop_tab")
 
-    for_you_tab: List[str] = field(default_factory=lambda: [
+    _for_you_tab_base: List[str] = field(default_factory=lambda: [
         '//*[@content-desc="For You"]',
         '//*[@text="For You"]',
         '//*[contains(@content-desc, "Pour toi")]',
     ])
+
+    @property
+    def for_you_tab(self) -> List[str]:
+        return self._for_you_tab_base + L("navigation.for_you_tab")
 
     # === Search button (header on For You page) ===
     # Resource-id: irz (from ui_dump_20260111_121059.xml)

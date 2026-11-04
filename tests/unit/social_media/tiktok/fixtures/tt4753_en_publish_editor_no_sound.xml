@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Same editor after e1l was tapped: live verification read Add sound and the cross disappeared. -->
+<hierarchy rotation="0">
+  <node class="android.widget.FrameLayout" package="com.ss.android.ugc.trill" bounds="[0,0][1080,2520]">
+    <node class="android.widget.FrameLayout" resource-id="com.ss.android.ugc.trill:id/e1x" clickable="true" bounds="[269,275][708,396]">
+      <node class="android.widget.TextView" resource-id="com.ss.android.ugc.trill:id/tv_top_text" text="Add sound" bounds="[358,276][702,396]"/>
+    </node>
+    <node class="android.widget.FrameLayout" resource-id="com.ss.android.ugc.trill:id/ts6" clickable="true" bounds="[33,2327][529,2448]"/>
+    <node class="android.widget.FrameLayout" resource-id="com.ss.android.ugc.trill:id/q25" clickable="true" bounds="[551,2327][1047,2448]">
+      <node class="android.widget.TextView" resource-id="com.ss.android.ugc.trill:id/q27" text="Next" bounds="[747,2358][850,2416]"/>
+    </node>
+  </node>
+</hierarchy>

@@ -3,6 +3,8 @@
 from copy import deepcopy
 from typing import Dict, List
 
+from taktik.core.clone.packages.package_map import TIKTOK_LITE_PACKAGE, preferred_tiktok_packages
+
 
 APPS = {
     "instagram": {
@@ -12,7 +14,7 @@ APPS = {
         "stop_wait": 1,
     },
     "tiktok": {
-        "package": "com.zhiliaoapp.musically",
+        "package": TIKTOK_LITE_PACKAGE,
         "activity": "com.ss.android.ugc.aweme.splash.SplashActivity",
         "launch_wait": 4,
         "stop_wait": 1.5,
@@ -39,11 +41,7 @@ APPS = {
 
 
 PLATFORM_ALTERNATIVES = {
-    "tiktok": [
-        "com.zhiliaoapp.musically",
-        "com.ss.android.ugc.trill",
-        "com.ss.android.ugc.aweme",
-    ],
+    "tiktok": list(preferred_tiktok_packages()),
 }
 
 

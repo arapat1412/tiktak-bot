@@ -12,8 +12,10 @@ from loguru import logger
 from taktik.core.social_media.tiktok.actions.base.base_action import BaseAction
 from taktik.core.social_media.tiktok.actions.base.utils import first_matching
 from taktik.core.social_media.tiktok.ui.selectors.shell.navigation import NAVIGATION_SELECTORS
-from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS
+from taktik.core.social_media.tiktok.ui.selectors.shell.popups import POPUP_SELECTORS, LITE_REWARD_CLOSE_SELECTOR
 from taktik.core.shared.behavior.tap import tap_element_human
+from taktik.core.shared.device.app_inspection import foreground_package
+from taktik.core.shared.device.ui_dump import parse_ui_dump
 
 #: The message banner sits at the top (measured bottom edge: 15 % of the screen height).
 _BANNER_MAX_BOTTOM_RATIO = 0.25
@@ -29,6 +31,38 @@ class PopupActions(BaseAction):
         self.navigation_selectors = NAVIGATION_SELECTORS
     
     # === Generic Popup Actions ===
+
+    def close_lite_reward_popup(self) -> bool:
+        """Tap the campaign X once and confirm disappearance on fresh hierarchies."""
+        matches = first_matching(self.device, [LITE_REWARD_CLOSE_SELECTOR])
+        if not matches:
+            return False
+        if foreground_package(self.device) != "com.ss.android.ugc.tiktok.lite":
+            return False
+        if len(matches) != 1:
+            raise RuntimeError("Popup heo vàng có nhiều nút đóng; hãy kiểm tra điện thoại.")
+        try:
+            tapped = bool(tap_element_human(self.device, matches[0], logger=self.logger))
+        except Exception as exc:
+            raise RuntimeError("Không bấm được nút X của popup heo vàng.") from exc
+        if not tapped:
+            raise RuntimeError("Không bấm được nút X của popup heo vàng.")
+        for attempt in range(5):
+            try:
+                tree = parse_ui_dump(self.device.dump_hierarchy(compressed=False))
+                if tree is None or not tree.xpath(
+                    '//*[@package="com.ss.android.ugc.tiktok.lite"]'
+                ):
+                    raise ValueError("Không đọc được giao diện TikTok Lite.")
+                visible = bool(tree.xpath(LITE_REWARD_CLOSE_SELECTOR))
+            except Exception as exc:
+                raise RuntimeError("Chưa xác minh được popup heo vàng đã đóng; kiểm tra điện thoại.") from exc
+            if not visible:
+                self.logger.info("Đã đóng popup heo vàng và kiểm tra lại màn hình.")
+                return True
+            if attempt < 4:
+                time.sleep(0.2)
+        raise RuntimeError("Popup heo vàng vẫn còn sau khi bấm X; hãy đóng thủ công rồi thử lại.")
     
     def close_popup(self) -> bool:
         """Try to close any popup or promotional banner.
@@ -40,6 +74,10 @@ class PopupActions(BaseAction):
         - Notification requests
         """
         self.logger.debug("? Trying to close popup")
+
+        if self.close_lite_reward_popup():
+            self.logger.info("Closed TikTok Lite reward popup")
+            return True
 
         if self._find_and_click(self.popup_selectors.gdpr_got_it_button, timeout=2):
             self.logger.info("? Closed GDPR popup via acknowledgment button")

@@ -5,13 +5,43 @@ from dataclasses import dataclass, field
 
 from taktik.core.social_media.tiktok.ui.selectors.locales import L
 
+LITE_REWARD_CLOSE_SELECTOR = (
+    '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/snb"]'
+    '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/sn6"]'
+    '[count(.//android.widget.ImageView)=1]//android.widget.ImageView'
+    # Lite 47.0.3 campaign (football/pig artwork): full-screen dismiss layer
+    # and the sole ImageView inside sl6 identify the X below the reward card.
+    ' | //*[@resource-id="com.ss.android.ugc.tiktok.lite:id/sl8"]'
+    '[./android.view.View[@resource-id="com.ss.android.ugc.tiktok.lite:id/sl1"]'
+    '[@content-desc="닫기"]]'
+    '//*[@resource-id="com.ss.android.ugc.tiktok.lite:id/sl6"]'
+    '[count(.//android.widget.ImageView)=1]//android.widget.ImageView'
+    ' | //androidx.compose.ui.platform.ComposeView'
+    '[@package="com.ss.android.ugc.tiktok.lite"]'
+    '[.//*[@text="돼지 저금통 깨고 획득하기"]]'
+    '//android.view.View[@content-desc="Close"]'
+    '[@package="com.ss.android.ugc.tiktok.lite"][@enabled!="false"]'
+)
+
 
 @dataclass
 class PopupSelectors:
     """Selectors for TikTok popups and modals."""
+
+    # Trill 47.5.3 / Korean / Samsung Android 16, captured 2026-11-02.
+    # This notice has only an Allow button and ignores Back. A workflow must
+    # stop for the user, never silently opt the account into marketing.
+    manual_consent_popup: List[str] = field(default_factory=lambda: [
+        '//*[@resource-id="com.ss.android.ugc.trill:id/visual_area"]'
+        '[.//*[@resource-id="com.ss.android.ugc.trill:id/zjs"]'
+        '[@text="트렌딩 콘텐츠 및 광고성 정보 수신 동의"]]'
+    ])
     
     # === Boutons de fermeture ===
     _close_button_base: List[str] = field(default_factory=lambda: [
+        # Lite reward campaign: the sole ImageView is the X below the card.
+        # No click on the unlabelled campaign's participation button.
+        LITE_REWARD_CLOSE_SELECTOR,
         '//*[contains(@resource-id, ":id/fac")]',
     ])
 

@@ -46,6 +46,9 @@ _COUNT_MULTIPLIERS = (
     ('K', 1_000),
     ('M', 1_000_000),
     ('B', 1_000_000_000),
+    ('천', 1_000),
+    ('만', 10_000),
+    ('억', 100_000_000),
 )
 
 
@@ -105,7 +108,7 @@ class ActionUtils:
         text = normalise_number_spaces(text.strip()).replace(',', '.').replace(' ', '')
         
         patterns = [
-            r'(\d+(?:\.\d+)?)\s*([KkMmBb]?)',  # 1.2K, 500, 2.5M
+            r'(\d+(?:\.\d+)?)\s*([KkMmBb천만억]?)',  # Includes Korean compact counts.
             r'(\d+(?:,\d+)*)',  # 1,234,567
             r'(\d+)'  # Simple number
         ]
@@ -122,7 +125,8 @@ class ActionUtils:
                     multipliers = {
                         'K': 1000, 'k': 1000,
                         'M': 1000000, 'm': 1000000,
-                        'B': 1000000000, 'b': 1000000000
+                        'B': 1000000000, 'b': 1000000000,
+                        '천': 1000, '만': 10000, '억': 100000000,
                     }
                     
                     if suffix in multipliers:

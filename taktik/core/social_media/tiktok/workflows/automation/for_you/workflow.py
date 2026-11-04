@@ -21,13 +21,14 @@ from taktik.core.social_media.tiktok.workflows.common.base_video_workflow import
 from taktik.core.social_media.tiktok.workflows.common.models import VideoWorkflowStats
 from taktik.core.social_media.tiktok.workflows.common.feed_interruptions import FeedInterruptionsMixin
 from taktik.core.social_media.tiktok.workflows.automation.for_you.models import ForYouConfig
+from taktik.core.social_media.tiktok.workflows.automation.for_you.natural import NaturalBrowsingMixin
 
 
 # Backward-compat alias
 ForYouStats = VideoWorkflowStats
 
 
-class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
+class ForYouWorkflow(NaturalBrowsingMixin, FeedInterruptionsMixin, BaseVideoWorkflow):
     """TikTok For You feed automation workflow.
     
     Ce workflow permet de:
@@ -62,6 +63,7 @@ class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
         
         self._running = True
         self.stats = VideoWorkflowStats()
+        self._reset_natural_session()
         
         try:
             # Navigate to For You feed
@@ -71,7 +73,9 @@ class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
                 return self.stats
             
             # Process videos
-            while self._running and self.stats.videos_watched < self.config.max_videos:
+            while self._running and (self._timed_browsing() or self.stats.videos_watched < self.config.max_videos):
+                if self._duration_expired():
+                    break
                 if not self._wait_if_paused():
                     break
                 
@@ -176,8 +180,13 @@ class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
                 # A stop that came during the video (the operator, a block, the desktop gone) or
                 # a cap just reached ends the run here. Read only at the top of the loop, it
                 # cost one more swipe on a feed nobody was watching any more.
-                if not self._running or self._check_limits_reached():
+                if not self._running:
+                    break
+                if self._check_limits_reached():
                     self.logger.info("📊 Session limits reached")
+                    break
+
+                if self._natural_enabled() and not self._timed_browsing() and self.stats.videos_watched >= self.config.max_videos:
                     break
 
                 # Scroll to next video
@@ -193,7 +202,11 @@ class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
                             self.logger.error("❌ Too many errors, stopping")
                             break
             
-            self.logger.success(f"✅ Workflow completed: {self.stats.to_dict()}")
+            reason = getattr(self.stats, 'completion_reason', '')
+            if reason and reason != 'duration_limit':
+                self.logger.warning(f"Workflow stopped: {reason}; {self.stats.to_dict()}")
+            else:
+                self.logger.success(f"✅ Workflow completed: {self.stats.to_dict()}")
             
         except Exception as e:
             self.logger.error(f"❌ Workflow error: {e}")
@@ -303,7 +316,11 @@ class ForYouWorkflow(FeedInterruptionsMixin, BaseVideoWorkflow):
         # loop; draw one only if this call fetched its own video_info.
         watch_time = video_info.get('watch_time') or random.uniform(
             self.config.min_watch_time, self.config.max_watch_time)
-        self.scroll.watch_video(watch_time)
+        if self._natural_enabled():
+            if not self._natural_wait(watch_time):
+                return
+        else:
+            self.scroll.watch_video(watch_time)
         
         self.stats.videos_watched += 1
         self._send_stats_update()  # Real-time stats

@@ -1,0 +1,1715 @@
+{
+  "capture_date": "2026-11-02",
+  "timezone": "Asia/Seoul",
+  "method": "Physical-phone uiautomator2 hierarchy; node structure/flags preserved. Non-allowlisted personal text, descriptions and system notifications replaced; no screenshots or media included.",
+  "notes": {
+    "publish_camera": "QNBP: Create opened gallery directly; this filename records the initial action, not a camera state.",
+    "comments_draft_native": "Duplicate foreground/background inputs; FCT7H fixture deliberately retains text in BACKGROUND while active send is disabled (negative regression).",
+    "feed_loaded": "W15J: mandatory marketing-consent notice; QS8Z: follow-friends popup; other devices: Korean feed.",
+    "lite_feed_current": "Android 11 Lite rewards overlay (not a feed).",
+    "camera_current": "Android camera permission dialog.",
+    "publish_gallery_videos": "Empty video filter before temporary probe medium was imported.",
+    "comments_recovered": "CT7H: empty sheet, no comment-author rows. QS8Z and AXKB: populated sheets.",
+    "comments_production_draft": "Verified real production typing, exactly one enabled foreground send; never sent.",
+    "comments_production_cleared": "Same session after discard_draft; empty composer and disabled/absent send.",
+    "lite_back": "Lite 47.5.3 / Android 11 feed after manual Android Back dismissed the rewards overlay; no fixed coordinates or public interaction."
+  },
+  "dumps": [
+    {
+      "file": "tt4763_ko_QNBP_loaded.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "loaded",
+      "captured_at": "2026-11-02T02:11:38.323109+09:00",
+      "raw_sha256": "1f01c7bce51e8a30cb88c8d96b436d2d5ab57bdde0d2003328ca66de21813785",
+      "sanitized_sha256": "7eb37b96f017643861afafe66eb616e943f42e22655e0a2f26cc532b2bbf3b62",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_populated.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_populated",
+      "captured_at": "2026-11-02T02:12:29.972703+09:00",
+      "raw_sha256": "a983fa887350f981cd960ec2ed5de6f9dd82a4a83cfb06348dfb9e044aeebc11",
+      "sanitized_sha256": "98892053433dce5874a2ef9f43f79586996ebf61f8d0a352042614076834135d",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_ime.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_ime",
+      "captured_at": "2026-11-02T02:13:05.487113+09:00",
+      "raw_sha256": "c89822cfe0b955dfe657c89d0504220f6f5a4bf1d8289fc7c1a338b5a2a36ba6",
+      "sanitized_sha256": "1886e78ac78f9dee2bd43f26e38b5101df4aa85a0a825b185194c479e743c92b",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_draft.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_draft",
+      "captured_at": "2026-11-02T02:13:59.340309+09:00",
+      "raw_sha256": "76fa1b542a0fa6f7e836a62f4872543e8b52a8e7e4ab7efa224e3f1e5d173317",
+      "sanitized_sha256": "1467f724644ed1599732726c698f6d8135ecc7f3c882a4c86ef1479775fff6b6",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.inputmethod",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_profile.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "profile",
+      "captured_at": "2026-11-02T02:14:12.728196+09:00",
+      "raw_sha256": "2064ec3ad6a7bb8aeb2b9d08bf44641b7e4bb027e4a5b555b59b95a9c32c81cd",
+      "sanitized_sha256": "52ba03ef40aaad30583ddf2b98345ea1abb68b1c8e9e42fcd77d08cf1fdf8122",
+      "surface": "own_profile",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_camera.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_camera",
+      "captured_at": "2026-11-02T02:14:34.576292+09:00",
+      "raw_sha256": "1ed5af772c87ce9ba0b53e6ec06f92ef4ec4ddae5daccdc923658a883977b1c1",
+      "sanitized_sha256": "02cf4ee4f11cfe5543004f0ff254acbf97233269026cc941284a2fb7d2ed6ca2",
+      "surface": "media_picker",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_selected.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_selected",
+      "captured_at": "2026-11-02T02:15:01.480413+09:00",
+      "raw_sha256": "7987e4c7ca977b5d1be275f056ecda7a2b6965f73c1a9855bf16f29de30e0ace",
+      "sanitized_sha256": "d12f36efc157c66ba9473d6d2ad51bc04ece368fed3bacbc0d1f44312b95fae7",
+      "surface": "media_picker_selected",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_editor.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_editor",
+      "captured_at": "2026-11-02T02:15:17.450983+09:00",
+      "raw_sha256": "a9d3ad4c23d1754647d7f1128329ee3730d6709308050a7370b57a928a8fa915",
+      "sanitized_sha256": "23a75dcf1d1e465d55013c1c280492a38393f9fdcd5362be693393dec06088dd",
+      "media_kind": "photo",
+      "surface": "publish_editor_with_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_editor_no_sound.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_editor_no_sound",
+      "captured_at": "2026-11-02T02:15:51.552015+09:00",
+      "raw_sha256": "1759845b7063b6e6e24a365c5a63ca48fb500e000c45dc5cf1dd85e3f0a3d5ab",
+      "sanitized_sha256": "cc9bd73fdc5c55c67b73618fd2cab31e654f9dece2e37252fe984dbb423a24c8",
+      "media_kind": "photo",
+      "surface": "publish_editor_without_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_composer.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_composer",
+      "captured_at": "2026-11-02T02:16:36.715119+09:00",
+      "raw_sha256": "c71670172c125eb2fbc7b0210abebb1c3b332606d1a54778c54dd01154c07de3",
+      "sanitized_sha256": "245e138e444e80fa85f35f4f544cd336dabc6ea8b3c9a32943024bec6f612581",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_caption_draft.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_caption_draft",
+      "captured_at": "2026-11-02T02:17:13.579836+09:00",
+      "raw_sha256": "945a3833d3866a28ceaab163694ef5aaa68586137de71c37cdf50b4e7669f310",
+      "sanitized_sha256": "1f608c7c5c48cb7554d399ab262adc322f85fe1170d70634a7b3601369bf017c",
+      "media_kind": "photo",
+      "surface": "publish_composer_with_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.inputmethod",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_before_post.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_before_post",
+      "captured_at": "2026-11-02T02:19:37.555664+09:00",
+      "raw_sha256": "0a44ec03da9615d2c5f155b5696eb72948aff8be78474b05b9f0a0fb7cee32bc",
+      "sanitized_sha256": "d4be81fb8d5b69c40cd2d8554c27308152c4e392fa71f5cc601fb8134002716f",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_actual_camera.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_actual_camera",
+      "captured_at": "2026-11-02T02:19:59.388339+09:00",
+      "raw_sha256": "eaf8ad5f6c8cbd9f09a658970788237d56d39a58f13b93e4d74918f8641896ac",
+      "sanitized_sha256": "7dbd794790d260b2fd684aaa76e5934f95230b4e8e82a9d3d1c2dc679d294a03",
+      "surface": "creation_camera",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_gallery_videos.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_gallery_videos",
+      "captured_at": "2026-11-02T02:21:20.878677+09:00",
+      "raw_sha256": "2195d3bb569892686441a6ae6de77a5fcabc7d5563278e09ebc3842691a870ed",
+      "sanitized_sha256": "5ac5a51f0ca6908b4a4834768fab67a41b35709111be141c430933076d492c50",
+      "surface": "media_picker_empty",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_video_grid.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_video_grid",
+      "captured_at": "2026-11-02T02:24:51.187977+09:00",
+      "raw_sha256": "a7e264ba4d687a20cfaa4529632363e1cdc1d427a5a9c761298b6d80cb156696",
+      "sanitized_sha256": "e609eee91bfca960742ac7924736c74affff8e07f771c8922e20c7e55fd3098a",
+      "surface": "media_picker",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_video_selected.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_video_selected",
+      "captured_at": "2026-11-02T02:24:53.746980+09:00",
+      "raw_sha256": "4de475e9396e878669dc3a7217fa53e2eb32df4225dd07c6422ec1ca11e7f118",
+      "sanitized_sha256": "ae0529f8ddf88bc866b4d2c95c4c7ef1c9fe2fc99d75fbcb2d7ee195b4bb67dc",
+      "surface": "media_picker_selected",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_video_editor.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_video_editor",
+      "captured_at": "2026-11-02T02:25:01.762803+09:00",
+      "raw_sha256": "954d824aacdfb91bec99193cdbcb6b8bc09a23a7ff8f5a51741b9139506e7daf",
+      "sanitized_sha256": "40e8e44568ebf54d98f36d7a1db170942543bdd695978b7c155a52b2d9fd40ed",
+      "media_kind": "video",
+      "surface": "publish_editor_with_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_video_no_sound.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_video_no_sound",
+      "captured_at": "2026-11-02T02:25:04.193749+09:00",
+      "raw_sha256": "1c45bb8141608c8a6b35f2a876577d7089d9ad36c96bfdbe375b2505906f3095",
+      "sanitized_sha256": "b7ad3b16df868c6920caa8a59b9c19bf4f297b5673d1f3114cad711a4659f3a7",
+      "surface": "publish_editor_without_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_video_composer.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_video_composer",
+      "captured_at": "2026-11-02T02:25:07.506806+09:00",
+      "raw_sha256": "dca5f7d746ef81d639580082e75228f9352d4224671b72dc8f40488c465a138a",
+      "sanitized_sha256": "abd7c82d6796407c52495c62ecceeae830c4eb94fa2b03593a759e0cd8db5cdd",
+      "media_kind": "video",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_caption_native.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_caption_native",
+      "captured_at": "2026-11-02T02:30:20.662716+09:00",
+      "raw_sha256": "bdde3730097960ce5b72e78d74284d7b0545eb20a05d05806366d8ccc5f0788d",
+      "sanitized_sha256": "a90d88e1fdab063c2dfddfffb09b946af012e2f7c1e430b9d35d9cb819fbf3df",
+      "media_kind": "video",
+      "surface": "publish_composer_with_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.inputmethod",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_publish_before_post_native.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_before_post_native",
+      "captured_at": "2026-11-02T02:30:22.180063+09:00",
+      "raw_sha256": "507c8933dabf8f2ccaa429292e2f85414664027deb987a26e8565769b7ae9d84",
+      "sanitized_sha256": "a98fdd56f42b661f4c7e1583e921046d4373e1b6d3f93340c0e7b5ed31733296",
+      "media_kind": "video",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_feed_verified.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "feed_verified",
+      "captured_at": "2026-11-02T02:36:44.541643+09:00",
+      "raw_sha256": "1ed0b851f6629880a0f61c3df451c6bfe07c0cd49db40693b134f0f9eb889838",
+      "sanitized_sha256": "6c013e4ea6fc4f0233affe0a6972985fcd5229cf904fdfda07b94ed190495f80",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_before_production.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_before_production",
+      "captured_at": "2026-11-02T02:36:52.518431+09:00",
+      "raw_sha256": "58ffff76c4d0eda145bbcdaab17d2e9c735021c065c0634fd579ffae24cadbf4",
+      "sanitized_sha256": "b35ab0d2cb03ac28bd94fd6ee85fd60ba6a9ae2dcbab6e1f881598610277ed76",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_production_draft.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_production_draft",
+      "captured_at": "2026-11-02T02:37:09.612235+09:00",
+      "raw_sha256": "bcd8842bdfc53f2e9fec5133f9f6b280e055afe9279cc87a7e8a09263d1cb24c",
+      "sanitized_sha256": "99347dc66dfdb936e7bdf88206ffc30d2d7884af54ceddd3e1965fb5016738ac",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_QNBP_comments_production_cleared.xml",
+      "device": "QNBP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "10",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_production_cleared",
+      "captured_at": "2026-11-02T02:37:15.769982+09:00",
+      "raw_sha256": "0fe10992522ff427fbf8e3e64707bfad0fe039a90d62c8dec75fe39a9381e9eb",
+      "sanitized_sha256": "4e0396578551ef3b25112bd8bfac1a9640419f26b5b4a2a550ed7c29373a7032",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_feed_loaded.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "feed_loaded",
+      "captured_at": "2026-11-02T02:14:38.626554+09:00",
+      "raw_sha256": "356d4f6826b2f1452f3e0c59935651f11fe9aaf166820793b761d9279b549d4c",
+      "sanitized_sha256": "1c65e3d3104274e89634647fab567cbecfadf5ac4413017e0dcbb8c8558f12f9",
+      "surface": "follow_friends_popup",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_feed_ready.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "feed_ready",
+      "captured_at": "2026-11-02T02:16:23.803499+09:00",
+      "raw_sha256": "3d970c331e0cbb970144affd744b353718e13506fe7ca96267ad5f5b2cb8303e",
+      "sanitized_sha256": "7841e2ecd353c9b3f49d9852768a5f839d447877d2a7f94237bcc2c3ff266e53",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_recovered.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_recovered",
+      "captured_at": "2026-11-02T02:18:56.465855+09:00",
+      "raw_sha256": "18943753314d552931de5e21cca87f723e2a2b7d318e071fcc426b7da67f4b24",
+      "sanitized_sha256": "28c3449c8843a516d968673daaed62dbcd86f521d4214fc24374fcd5c0ece112",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_ime.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_ime",
+      "captured_at": "2026-11-02T02:16:30.031138+09:00",
+      "raw_sha256": "f14b271577e1cd8cd1356033a9236ff03318540de902a1cd8006bad649ce06ed",
+      "sanitized_sha256": "fdca23ee29d4fd3d69e537c4c81d9c855d67d8f34d76519cddd358bc62a4f3ae",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_draft_native.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_draft_native",
+      "captured_at": "2026-11-02T02:18:59.869790+09:00",
+      "raw_sha256": "cf57784e6139faa6c320db0e1f6b38d8c6f2a98a8c229540e727f4699ce1559d",
+      "sanitized_sha256": "714aaba6bfff4eba6877c09b355befb489346e6a63447103f0ab3ba762833549",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.github.uiautomator",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_profile.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "profile",
+      "captured_at": "2026-11-02T02:20:27.443505+09:00",
+      "raw_sha256": "608ce594c5960f6d3a2b551fc5039809428c450c6b7a99e6658043830e592aa1",
+      "sanitized_sha256": "9583d55adbad110eed8b6715889242c8e5e16b6d251badf500546c918d424067",
+      "surface": "own_profile",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_entry.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_entry",
+      "captured_at": "2026-11-02T02:20:31.681068+09:00",
+      "raw_sha256": "259fb83533dc1d5a9eeab68d4f3c021cc29d29b17a2056a1149b10dba3a526b2",
+      "sanitized_sha256": "2da7284e80727c8a3c0d33deafc0b0c6a627d1515d5040d7541cacdb66524b6d",
+      "surface": "creation_camera",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_camera_current.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "camera_current",
+      "captured_at": "2026-11-02T02:21:54.768710+09:00",
+      "raw_sha256": "e31bcf041730cd9bd146bc54d3119bbb30a1b354149d1cda901804c7493477d1",
+      "sanitized_sha256": "1a8d1792f8a791be51166b711c4107b87e712757b4b09d1709a4e0573df02e0d",
+      "surface": "android_permission_dialog",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.google.android.permissioncontroller",
+        "com.sec.android.app.launcher"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_gallery_final.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_gallery_final",
+      "captured_at": "2026-11-02T02:26:04.148678+09:00",
+      "raw_sha256": "6ae0e48e6392ccf21f979b0736dae2b6db9f10f2664c7f44ef24c35531bbac5f",
+      "sanitized_sha256": "771d90a587d726fec346b54e067a69d9cdf38866df0e42fe977aa71ce23fa292",
+      "surface": "media_picker",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_selected.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_selected",
+      "captured_at": "2026-11-02T02:26:07.257841+09:00",
+      "raw_sha256": "dba532576befe87db8096fa4e2a48c4c6183829e129089d83fb0a25ffb5eafce",
+      "sanitized_sha256": "647818855cb7e054b4e8545d9022782bfe32b78500036d086f9d5ee22342806f",
+      "surface": "media_picker_selected",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_editor_stable.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_editor_stable",
+      "captured_at": "2026-11-02T02:28:08.003068+09:00",
+      "raw_sha256": "fdddaf4e9fc9fe8b0c49b1d29e4130f1574b86e3c9c581de378bc51350a47477",
+      "sanitized_sha256": "b5b65e146c7c9c10c303d50f39312cc075e04841d5a9c6295d29c81ba73eadec",
+      "media_kind": "video",
+      "surface": "publish_editor_with_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_editor_no_sound.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_editor_no_sound",
+      "captured_at": "2026-11-02T02:28:10.662903+09:00",
+      "raw_sha256": "bb8f3f82aac9914bbca1fe4533c58172272b789ad7dc28f5d228c3437c1ec34c",
+      "sanitized_sha256": "ec1f3859939e77d21a16f86c9976c7fb30112be013f78ec0bdd9f9c44d381b2f",
+      "media_kind": "video",
+      "surface": "publish_editor_without_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_composer.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_composer",
+      "captured_at": "2026-11-02T02:28:13.557140+09:00",
+      "raw_sha256": "869d1b71a58884b0cea0c5403dd83bf6393d047a6c49c5285d2caf750f5e2853",
+      "sanitized_sha256": "d078f391de78a5a0243e611600e55fc56ca7084e94e9628794b4d7819bd6b21d",
+      "media_kind": "video",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_caption_native.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_caption_native",
+      "captured_at": "2026-11-02T02:29:05.537078+09:00",
+      "raw_sha256": "a3816e9fc7622bc40f2e18ad5480ae3139dee0c95c1d14e67c126a571100bc47",
+      "sanitized_sha256": "a1df40120e1f55afcddc2bdef7a5792b3a3551ecb6b6b2dac1867cb71b22061e",
+      "media_kind": "video",
+      "surface": "publish_composer_with_draft",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_publish_before_post_native.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "publish_before_post_native",
+      "captured_at": "2026-11-02T02:29:07.072291+09:00",
+      "raw_sha256": "0b7666bc783d740063168a06eb3c2276d2d19807e727276152ff6ce5a6fadd00",
+      "sanitized_sha256": "d8a7464d0c095b656ca1384187d05cbabb2ab235084753d7e9332c77c21681e8",
+      "media_kind": "video",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_feed_verified.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "feed_verified",
+      "captured_at": "2026-11-02T02:33:58.732649+09:00",
+      "raw_sha256": "89a6059343e0218968160a39fedd27dc0f1eeceee4771eadb8999b4a95ce4d7d",
+      "sanitized_sha256": "7434b23d107e83c74a499566b1cb1893896f75b64f1ff24014de602a1df09394",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_before_production.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_before_production",
+      "captured_at": "2026-11-02T02:34:02.430635+09:00",
+      "raw_sha256": "149baba54eb2c1bd0a371ba15e373741fde7a1dfae2f0f664a7fe3f238f7e2cd",
+      "sanitized_sha256": "b43a6dc2e574bf39b006d4ba244ac8e7f5f61342f8ea68c5b860a4040db77669",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_production_draft.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_production_draft",
+      "captured_at": "2026-11-02T02:34:11.793487+09:00",
+      "raw_sha256": "b2e16c8f83ee753ffb76a2e5233023e58117863429903d621112dffcd7d9c7f9",
+      "sanitized_sha256": "6ccfaebee9f8ce25d0aadc82cd1233f7935280e1b2ac1580bfdb66ca32dd9418",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_QS8Z_comments_production_cleared.xml",
+      "device": "QS8Z",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "comments_production_cleared",
+      "captured_at": "2026-11-02T02:34:14.938262+09:00",
+      "raw_sha256": "82e36aad87955d4670736a3352d918fff974dd351fe055964d653a4678ffc350",
+      "sanitized_sha256": "b26b7583bb259f4795104e5817746fe793f742fc1242dd0b254a7d5924db0223",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_feed_loaded.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_loaded",
+      "captured_at": "2026-11-02T02:14:41.129591+09:00",
+      "raw_sha256": "620e7df59a12609dec60aeee009c3ce0e02e2f0064136486430a9e294150e7f0",
+      "sanitized_sha256": "947dc44cb82248f2b0b6eb9584f0055d33823488a0ac81003cd38fef8b0478c0",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_recovered.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_recovered",
+      "captured_at": "2026-11-02T02:18:55.567491+09:00",
+      "raw_sha256": "74cd0852657b1f8d7f88cf13261ea681b38f022f8c5f9381b3999b646107ead1",
+      "sanitized_sha256": "dcc094e4d5f0fe63391f6e4cdc217b087b645f68f029d079226ed7487327b133",
+      "surface": "comment_sheet_empty",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_ime.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_ime",
+      "captured_at": "2026-11-02T02:16:27.527327+09:00",
+      "raw_sha256": "513be61d25a0f68e3c5ebc89e9f020c430d85bb238743a2787e7cdda40a566c0",
+      "sanitized_sha256": "a4457d91ecdf1553f0a2de626c2ddfe38e146f95734c85cff401a714bfdae3ba",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.samsung.android.honeyboard",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_draft_native.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_draft_native",
+      "captured_at": "2026-11-02T02:18:58.070875+09:00",
+      "raw_sha256": "dfbd9f9db22cac803cfb967ed500dd70ec227870f6432bed751183d7c8834c70",
+      "sanitized_sha256": "a2ee3d4be9369ea2b9d6e5deea4ba28ea95a8cb99673f066758762348175b488",
+      "surface": "comment_background_draft_active_empty",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.github.uiautomator",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_profile.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "profile",
+      "captured_at": "2026-11-02T02:20:26.211560+09:00",
+      "raw_sha256": "69e99d457a2cada4477b74ea6fa896b44afe22907ef71a041c24ba8f2490fc70",
+      "sanitized_sha256": "7d00a133f4f9c689fa115062c6f80e8668ad7c10c8dfd2d875421a7565c6f6c3",
+      "surface": "own_profile",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_entry.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_entry",
+      "captured_at": "2026-11-02T02:20:29.334516+09:00",
+      "raw_sha256": "a9359e5b3fe75249b900b16cdbd0d39fb0aaf3ec0277949f9b33b9c61eb7cb19",
+      "sanitized_sha256": "08157e5b6428c6c997ab67833b404f89f59e668cee76f7f83e739b64f7d56cff",
+      "surface": "creation_camera",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_camera_current.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "camera_current",
+      "captured_at": "2026-11-02T02:22:02.499482+09:00",
+      "raw_sha256": "2ecab7399dde2e016c7ca3bf0cc816eb04bbd3319c08f58e5c6a2517fc181877",
+      "sanitized_sha256": "3c19ae69984dc0f541b5cf1954b9cb10c4637c855ec664c9b6f15d960948ff94",
+      "surface": "android_permission_dialog",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.google.android.permissioncontroller",
+        "com.samsung.android.app.cocktailbarservice"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_gallery_final.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_gallery_final",
+      "captured_at": "2026-11-02T02:26:01.344931+09:00",
+      "raw_sha256": "64dd7bc53b1f6a9c2974f79ba02f12aae86d75aa4977c2c70c6bcc25dc427f39",
+      "sanitized_sha256": "408ca7204c7caf2b2c8d60390c00630241fdaa31182b7a1c63321adc31142e93",
+      "surface": "media_picker",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_selected.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_selected",
+      "captured_at": "2026-11-02T02:26:04.690197+09:00",
+      "raw_sha256": "ef0d83006b81c4ee12454e170c8ef8f88a4e6ab4ff85d57c9b1938abe7e64aee",
+      "sanitized_sha256": "ab344b60ade4198426f93d8cae9113fb893626951a8e2fd33b615e1a5a696f9f",
+      "surface": "media_picker_selected",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_editor_stable.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_editor_stable",
+      "captured_at": "2026-11-02T02:28:07.646204+09:00",
+      "raw_sha256": "9daa85fbad02e423bcf6aaeb0f53f1f5b8c605524c162040d6723a6e69738595",
+      "sanitized_sha256": "cc368cc6c40cfaba06f08838369502fd533fd638c0c423252651a652196dca0b",
+      "media_kind": "photo",
+      "surface": "publish_editor_with_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_editor_no_sound.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_editor_no_sound",
+      "captured_at": "2026-11-02T02:28:10.558989+09:00",
+      "raw_sha256": "03f089d667644d408868d328ce3a6d3acf3ce28d0318666832beb1bc4fe0d0c6",
+      "sanitized_sha256": "fbf24c88413d27574e844c5a173e5318ad30bef0ba64b725110e4b9d1b1ed93c",
+      "media_kind": "photo",
+      "surface": "publish_editor_without_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_composer.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_composer",
+      "captured_at": "2026-11-02T02:28:13.327883+09:00",
+      "raw_sha256": "0a0cacc2e8adc15f496bdcae5b63659d8bd3976eeedec0f41ba064368df312b3",
+      "sanitized_sha256": "7d5a605c6e77ba932915dbb71f5c3a37873efd3e5271da541038d2d0fb5ecaa8",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_caption_native.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_caption_native",
+      "captured_at": "2026-11-02T02:29:05.194010+09:00",
+      "raw_sha256": "96689b2cb2fa6a5cdfce5b4df7830c88b46dbaaf18cb8fb78d886147a3eeeab6",
+      "sanitized_sha256": "0edd2008fa155dedc37c8abb7208f0533f777f108062f3118d35a712a93ce9ee",
+      "media_kind": "photo",
+      "surface": "publish_composer_with_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.samsung.android.honeyboard",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_publish_before_post_native.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_before_post_native",
+      "captured_at": "2026-11-02T02:29:06.484179+09:00",
+      "raw_sha256": "fa533b925dae8e594aa67392d2f9c39a3daa141beb4a53aec4615f24219e16bd",
+      "sanitized_sha256": "4a609dd6b54be0cbdfa977f87f8df20f7fb14da3d831f07c030ed35f817328f3",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_feed_verified.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_verified",
+      "captured_at": "2026-11-02T02:33:57.928478+09:00",
+      "raw_sha256": "e7457cfc207bce66cd02ce18cf09ac665369df4ea02afcfefa599107fd23a8f0",
+      "sanitized_sha256": "7d833924d5bccba5a9ea2532476a9c5832c3ea378bcf8e7105b5d148bb274ba4",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_before_production.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_before_production",
+      "captured_at": "2026-11-02T02:34:01.296526+09:00",
+      "raw_sha256": "78991092ae4f76de0ddbff094e960892bc1cb0893cc3fd8a74cc1890d9bca027",
+      "sanitized_sha256": "426115742039ad4493731e492e0314a2ab52f69159b85f2e1d4ee82e85285b5c",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_production_draft.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_production_draft",
+      "captured_at": "2026-11-02T02:34:13.166432+09:00",
+      "raw_sha256": "f63ebd2cbf8c357cb00ee29a83ee964fc51bb6524ca86c660c3b30bd6af8f30f",
+      "sanitized_sha256": "94ca30abb21310deb5ff428403564553c4b3275482215a38371b63b20a4fc004",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4752_ko_CT7H_comments_production_cleared.xml",
+      "device": "CT7H",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.2",
+      "version_code": 470502,
+      "android": "13",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_production_cleared",
+      "captured_at": "2026-11-02T02:34:17.256343+09:00",
+      "raw_sha256": "280f44e4f1170f5d8c1b6761f6ba9e333eea5e5b87cc36d5c7d172305f5fef16",
+      "sanitized_sha256": "637cdc39175fa7b2f2e7b9d13522ed841bfa939db9ccba4aeca260fe1643c8b2",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.samsung.android.app.cocktailbarservice",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_feed_loaded.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_loaded",
+      "captured_at": "2026-11-02T02:14:41.679880+09:00",
+      "raw_sha256": "3631665f76afb9336b17b6c9fe74443b40af7f87efe63c8a60aa8e584c3dbe5d",
+      "sanitized_sha256": "eb9b7d355fbfa2dbc15c953c6becb490719467f02cf0f46844e09b9ac31ec92e",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_recovered.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_recovered",
+      "captured_at": "2026-11-02T02:18:56.509686+09:00",
+      "raw_sha256": "b63e092bb1d2d7dc57bab7271d59b670b033472e1f7cc61720406d227bfcc08e",
+      "sanitized_sha256": "b6f99c1f0d747489c70195b5aa3672b02d10a91743106c505771ae9ace09be72",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_ime.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_ime",
+      "captured_at": "2026-11-02T02:16:28.775100+09:00",
+      "raw_sha256": "ab3d930775f690f598835226305eec7f06b2e0c1056b6b2c2d3331590fb391c8",
+      "sanitized_sha256": "d32eb77c297dfbb2ca0dd7880d5640f7728e86f11c4e99e6469916bfa3ee51f1",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_draft_native.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_draft_native",
+      "captured_at": "2026-11-02T02:18:59.824407+09:00",
+      "raw_sha256": "a263d360c673a71f8713856739eb9faeeecb606bcf218458e0b00bfc8cd30071",
+      "sanitized_sha256": "ba35b3cdd35fa685f651ee98c654f2cae869a0c1252fd40c9f5fa84ce6792099",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.github.uiautomator",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_profile.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "profile",
+      "captured_at": "2026-11-02T02:20:27.429951+09:00",
+      "raw_sha256": "adf6c1549b7788488e0c2955529cad2357f5bdb7fad8e92d696905d31d1caa9a",
+      "sanitized_sha256": "d29f4c4b2145c0c7553ac2b5b1e550f7597c02dd2510edd2cc771bd1ebb67c98",
+      "surface": "own_profile",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_camera.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_camera",
+      "captured_at": "2026-11-02T02:21:30.100360+09:00",
+      "raw_sha256": "33dafa1038c40df0d6bf3d292119fe9690a9e55c6b729027117c9371f2ff9bdd",
+      "sanitized_sha256": "7395e856452b48527476145361aff0d00319a8836cd84988af9713c3d69134b8",
+      "surface": "transition_or_overlay",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.google.android.permissioncontroller"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_gallery_final.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_gallery_final",
+      "captured_at": "2026-11-02T02:26:01.562956+09:00",
+      "raw_sha256": "faaa8b7893f5c399bd5f2545478bdc7e564398e643f7e9a98bb3b96bbb50ec0f",
+      "sanitized_sha256": "d159bed908c850e63c2272a480e86e443cd27d9c8bea11f3f5497858b4724015",
+      "surface": "media_picker",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_selected.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_selected",
+      "captured_at": "2026-11-02T02:26:04.600953+09:00",
+      "raw_sha256": "8598b4d9a83610d253cc2c70fe02cbf7c67517610da97a50a66c4267cfcb67e4",
+      "sanitized_sha256": "914b5337ac88f234475a26dc28dd3f0e835ecb01693a3c6518033070b62fda63",
+      "surface": "media_picker_selected",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_editor_stable.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_editor_stable",
+      "captured_at": "2026-11-02T02:28:08.192673+09:00",
+      "raw_sha256": "2871d3667e344fc59b9960d2554d59a10deeeb7e8f285b757579284a9ab1a566",
+      "sanitized_sha256": "ca082577b7c4d96e75bc7ce5a5ed5bf36e9def73ee50c8049ab23d9b30bc3647",
+      "media_kind": "photo",
+      "surface": "publish_editor_with_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_editor_no_sound.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_editor_no_sound",
+      "captured_at": "2026-11-02T02:28:11.311075+09:00",
+      "raw_sha256": "c72e07df607add345cc82c7874abfed0e107c0f74841b503ffea3f14af431809",
+      "sanitized_sha256": "a438bb000a0476343c6426d6cac56a347c234acffdeffacbb76d686c0118f0ba",
+      "media_kind": "photo",
+      "surface": "publish_editor_without_sound",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_composer.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_composer",
+      "captured_at": "2026-11-02T02:28:14.731164+09:00",
+      "raw_sha256": "f336103f4f8384c9baeef1325363f6fe9414fd58ee6357bc465f6d8f4269f3a3",
+      "sanitized_sha256": "9b978e67bae844ef9034e4ebd6c78146865e91ca086e1d70a1e09bd09b8aa2bc",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_caption_native.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_caption_native",
+      "captured_at": "2026-11-02T02:29:06.000376+09:00",
+      "raw_sha256": "0330be4f32111557a88e37f1fea7c4e321c9b576b51f7a0b6bf5d7f577b4fa6d",
+      "sanitized_sha256": "99dae34f6a4b7f6ecc1e9dbe0e1abd5b3b9998b613f9c066ee63f8886cfa19f7",
+      "media_kind": "photo",
+      "surface": "publish_composer_with_draft",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.samsung.android.honeyboard",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_publish_before_post_native.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "publish_before_post_native",
+      "captured_at": "2026-11-02T02:29:07.440667+09:00",
+      "raw_sha256": "e640bf17f631bbc04049fb011e72ef1d5d3fccb6765f6ce047c6a417034a94af",
+      "sanitized_sha256": "b1c360fe45b21aae184f2b7476b053fec6a504188b80f361258cda6a1466eecb",
+      "media_kind": "photo",
+      "surface": "publish_composer_before_post",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_feed_verified.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_verified",
+      "captured_at": "2026-11-02T02:36:41.444433+09:00",
+      "raw_sha256": "82f121125d49623d51d99e7271b4d3f8c098e98d1d5722fb101a6bfb6a44862e",
+      "sanitized_sha256": "1104c3812a87d5f44668ae5d8ac9a3dfa8f03653911e792b21f358c55addf942",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_before_production.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_before_production",
+      "captured_at": "2026-11-02T02:36:44.839371+09:00",
+      "raw_sha256": "278954cb52bce8f38a74e4cab7bf81fd7187140600462e8c8fe3f4f8f10235ea",
+      "sanitized_sha256": "09675857a49b8737f9b529eeb394f9868273189cf6104582c63e8c490ba9cd02",
+      "surface": "comment_sheet_populated",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_production_draft.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_production_draft",
+      "captured_at": "2026-11-02T02:36:57.424577+09:00",
+      "raw_sha256": "5f4ffcf4f3eaff118f7dfb11ca0e558be35668e5fa1e1af245cd1c22f3355240",
+      "sanitized_sha256": "30c78545b0855d407e73d9e64ff641e5d8002ea9aa19a39e87b0d5c7a2ce0096",
+      "surface": "comment_draft",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4714_ko_AXKB_comments_production_cleared.xml",
+      "device": "AXKB",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.1.4",
+      "version_code": 470104,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "comments_production_cleared",
+      "captured_at": "2026-11-02T02:37:00.778285+09:00",
+      "raw_sha256": "8b1f1c712e4bef8403aabe541dd4926a35e4a3e5d318e611195a6e153a0db525",
+      "sanitized_sha256": "95a234234f035e5759a4bf729ad7aece4dcd258b23fbac2d322d27647f9ae3ef",
+      "surface": "comment_input_empty_focused",
+      "observed_packages": [
+        "com.android.adbkeyboard",
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_W15J_feed_loaded.xml",
+      "device": "W15J",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_loaded",
+      "captured_at": "2026-11-02T02:14:38.723106+09:00",
+      "raw_sha256": "ec2e7d87d5838c70253e0c4f9621abfcbdf074fb8b572217b8f778b40d89e9f0",
+      "sanitized_sha256": "e542e0c71b7eca6c7da02fd022c4d66c8f2f7bc72609230a935a190d83efbfae",
+      "surface": "mandatory_marketing_consent",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_W15J_marketing_back.xml",
+      "device": "W15J",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "marketing_back",
+      "captured_at": "2026-11-02T02:31:50.062294+09:00",
+      "raw_sha256": "0dc6bc7b8ada7e3ddda114f47ff11bc52019684599c155f1908135fcb2620cc7",
+      "sanitized_sha256": "4e18c80a79495793ace7aae61f04bf55da1cd801e88b68ad1afec0cb3e7495de",
+      "surface": "mandatory_marketing_consent",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.sec.android.app.launcher",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4763_ko_3BJP_feed_loaded.xml",
+      "device": "3BJP",
+      "package": "com.ss.android.ugc.trill",
+      "version": "47.6.3",
+      "version_code": 470603,
+      "android": "16",
+      "adb_port": 5038,
+      "app_language": "ko",
+      "state": "feed_loaded",
+      "captured_at": "2026-11-02T02:14:44.259161+09:00",
+      "raw_sha256": "118f9c8d07f4b19edd7093502cbab1d957d0ce6d2b33e1445b6fb131232c610f",
+      "sanitized_sha256": "ff82c7890f93eb04ceb0d491f8303ecd70249f301b746456917ed4befe73b6d8",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.trill"
+      ]
+    },
+    {
+      "file": "tt4753_ko_7WKJ_lite_feed_current.xml",
+      "device": "7WKJ",
+      "package": "com.ss.android.ugc.tiktok.lite",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "11",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "lite_feed_current",
+      "captured_at": "2026-11-02T02:31:17.401150+09:00",
+      "raw_sha256": "42e57bf3cf0f38b47d099c2f41d6cb057f690a5ea5eb7bdd14734b06ed6b7853",
+      "sanitized_sha256": "72624558163f44e7d1b2f14abcd03caf951fc1a8aedbdbab50c74d47a0825343",
+      "surface": "lite_rewards_overlay",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.tiktok.lite"
+      ]
+    },
+    {
+      "file": "tt4753_ko_7WKJ_lite_overlay_loaded.xml",
+      "device": "7WKJ",
+      "package": "com.ss.android.ugc.tiktok.lite",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "11",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "lite_overlay_loaded",
+      "captured_at": "2026-11-02T02:40:15.884180+09:00",
+      "raw_sha256": "894d10ebe1e71c0faa5b13d4926ffe96afb00eec377c6937fb9ef2c550ee564a",
+      "sanitized_sha256": "72624558163f44e7d1b2f14abcd03caf951fc1a8aedbdbab50c74d47a0825343",
+      "surface": "lite_rewards_overlay",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.tiktok.lite"
+      ]
+    },
+    {
+      "file": "tt4753_ko_7WKJ_lite_back.xml",
+      "device": "7WKJ",
+      "package": "com.ss.android.ugc.tiktok.lite",
+      "version": "47.5.3",
+      "version_code": 470503,
+      "android": "11",
+      "adb_port": 5037,
+      "app_language": "ko",
+      "state": "lite_back",
+      "captured_at": "2026-11-02T02:41:01.935965+09:00",
+      "raw_sha256": "e4db0bc03cff2084c1d4dcee7a648c948939b8b24c7866d502681213258f36dc",
+      "sanitized_sha256": "a3bebc5463e2ba680fc8b27e9e412e39435e34c36d1eb062602240ffd4c1a88a",
+      "surface": "feed",
+      "observed_packages": [
+        "com.android.systemui",
+        "com.ss.android.ugc.tiktok.lite"
+      ]
+    }
+  ]
+}

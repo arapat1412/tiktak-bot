@@ -291,17 +291,9 @@ class TikTokUploadWorkflow:
         self._recover_from_video_edit_screen()
         if not tap_element(self.device, PUBLISH_COMPOSER_SELECTORS.post_btn, timeout=5.0):
             self._recover_from_video_edit_screen()
-            if tap_element(self.device, PUBLISH_COMPOSER_SELECTORS.post_btn, timeout=3.0):
-                time.sleep(3.0)
-                if self._refused():
-                    return self._refused_error()
-                dismiss_post_popups(self.device, log=_ipc.log)
-                _ipc.status("success", "Post published successfully!")
-                _ipc.log("info", "✅ TikTok post published")
-                self._capture("08_posted")
-                force_stop_app_package(self.device_id, tiktok_pkg, log=_ipc.log)
-                return {"success": True, "message": "Post published successfully", "error_type": None}
-            return self._error("post_btn_not_found", "Post button not found")
+            if not tap_element(self.device, PUBLISH_COMPOSER_SELECTORS.post_btn, timeout=3.0):
+                return self._error("post_btn_not_found", "Post button not found")
+            # A successful fallback tap still needs the same commit evidence below.
 
         time.sleep(1.8)
         # The one look after a write, before any popup is dismissed: a refusal is no timeout.
@@ -419,6 +411,18 @@ class TikTokUploadWorkflow:
         if not clear_caption_text(self.device_id, log=_ipc.log):
             _ipc.log("debug", "[caption] clear text skipped or failed")
 
+        # Selecting the ADB IME can drop focus on Android 12 (Sony SO-52A).
+        # Locate and focus again after the switch before typing/readback; never
+        # fall back to a screen coordinate or another text field.
+        el = find_element(self.device, PUBLISH_COMPOSER_SELECTORS.caption_input, timeout=2.0)
+        if el is None:
+            return False
+        try:
+            el.click()
+            time.sleep(0.2)
+        except Exception:
+            return False
+
         caption = (caption or "").strip()
         # The field must hold exactly the caption before hashtags go after it.
         if caption and not type_caption_checked(
@@ -444,8 +448,7 @@ class TikTokUploadWorkflow:
                 type_caption_text(self.device_id, " ", delay_mean=40, delay_deviation=10, log=_ipc.log)
                 time.sleep(0.15)
 
-        dismiss_keyboard(self.device, self.device_id, log=_ipc.log)
-        return True
+        return dismiss_keyboard(self.device, self.device_id, log=_ipc.log)
 
     def _confirm_hashtag_suggestion(self, expected_tag: str | None = None) -> bool:
         """Tap the first item in TikTok's hashtag autocomplete suggestion list.

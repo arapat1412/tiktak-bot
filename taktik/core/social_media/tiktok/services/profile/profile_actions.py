@@ -66,6 +66,13 @@ class ProfileActions(BaseAction):
         if self._find_and_click(NAVIGATION_SELECTORS.profile_tab, timeout=5.0):
             self._random_sleep(1.5, 2.5)
 
+            # Lite's first own-profile visit can hide navigation behind Save login info.
+            # Decline only the measured app-owned Korean "Later" control.
+            self._find_and_click(
+                ['//*[@package="com.ss.android.ugc.tiktok.lite"][@text="나중에"]'],
+                timeout=0.2,
+            )
+
             try:
                 # ORDER MATTERS, and it was the wrong way round. `edit_profile_button` is
                 # `@text="Modifier"`: it reads 0 on 46.6.3 FR -- the comment below said so

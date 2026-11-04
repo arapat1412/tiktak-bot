@@ -40,3 +40,17 @@ def test_resolve_tiktok_package_falls_back_to_default():
         default="fallback.package",
         run=fake_run,
     ) == "fallback.package"
+
+
+def test_lite_is_preferred_when_full_app_is_also_installed():
+    def fake_run(command, **kwargs):
+        return subprocess.CompletedProcess(command, 0, f"package:{command[-1]}\n", "")
+
+    assert resolve_tiktok_package("phone", run=fake_run) == "com.ss.android.ugc.tiktok.lite"
+
+
+def test_package_filter_requires_exact_successful_package_line():
+    def fake_run(command, **kwargs):
+        return subprocess.CompletedProcess(command, 0, f"package:{command[-1]}.clone\n", "")
+
+    assert resolve_tiktok_package("phone", default="missing", run=fake_run) == "missing"

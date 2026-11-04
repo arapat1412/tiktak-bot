@@ -10,7 +10,7 @@ Adapté depuis ``social_media/instagram/ui/language.py`` (même API).
 Usage, early in a workflow:
     from taktik.core.social_media.tiktok.ui.language import detect_and_optimize
 
-    lang = detect_and_optimize(device)   # 'en', 'fr', or 'unknown'
+    lang = detect_and_optimize(device)   # 'en', 'fr', 'ko' or 'unknown'
     # Every selector singleton is now filtered in place.
 """
 
@@ -119,6 +119,17 @@ _EN_WORDS: Set[str] = {
     "private", "following",
 }
 
+# Korean-only words, measured on TikTok 47.5.3 (SO-52A, Korean phone).
+# User content is not vocabulary: these are the app's own labels (bottom bar, comments,
+# publishing). Whole-word matching keeps them from scoring inside unrelated Hangul runs.
+_KO_WORDS: Set[str] = {
+    # Navigation / bottom bar
+    "홈", "친구", "팔로잉", "추천", "검색", "만들기", "알림", "프로필", "닫기",
+    # Comments / publishing
+    "댓글", "다른", "사용자", "멘션", "스티커", "다음", "게시",
+    "사운드", "추가", "업로드", "취소",
+}
+
 
 # ──────────────────────────────────────────────────────────────
 # Cablage
@@ -131,7 +142,10 @@ _EN_WORDS: Set[str] = {
 # L'etat est porte par l'INSTANCE, pas par le module : un meme telephone peut afficher TikTok en
 # anglais et Instagram en francais, et un etat partage ferait passer la langue de l'une a l'autre.
 
-_DETECTION = LanguageDetection("TikTok", _FR_WORDS, _EN_WORDS)
+_DETECTION = LanguageDetection(
+    "TikTok", _FR_WORDS, _EN_WORDS,
+    additional_vocabularies={"ko": _KO_WORDS},
+)
 
 
 def get_detected_language() -> Optional[str]:
@@ -172,8 +186,11 @@ def optimize_selector_dataclass(instance, lang: str) -> int:
 def detect_and_optimize(device, override: Optional[str] = None) -> str:
     """Detect (or force) the app language AND optimize every known selector singleton."""
     from taktik.core.social_media.tiktok.ui import selectors as _barrel
-    from taktik.core.social_media.tiktok.ui.selectors.locales import set_active_locale
+    from taktik.core.social_media.tiktok.ui.selectors.locales import (
+        available_locales, set_active_locale,
+    )
 
     return _DETECTION.detect_and_optimize(
         device, override, barrel=_barrel, set_active_locale=set_active_locale,
+        available_locales=available_locales,
     )
